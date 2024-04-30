@@ -1,8 +1,8 @@
 <?php
 include('conexao.php');
 if(isset($_GET['id_noticia'])){
-  $id_noticia = $GET['id_noticia'];
-  $sql1 = 'SELECT FROM noticia WHERE id_noticia = '.$id_noticia;
+  $id_noticia = $_GET['id_noticia'];
+  $sql1 = 'SELECT * FROM noticia WHERE id_noticia = '.$id_noticia;
 }
 ?>
 <!DOCTYPE html>
@@ -61,28 +61,38 @@ if(isset($_GET['id_noticia'])){
 <!-- Fim da navbar -->
 <br>
 
+<?php
+ $executa = $con->query($sql1);
+if($executa -> fetch_array() == ""){ 
+  //caso nao tenha nenhum
+  echo 'FUDEU FUDEU FUDEU';
+}else{
+  // caso tenha grupos para listar
+  $executa = $con->query($sql1);
+  while($noticia = $executa -> fetch_array()){//Loop vai selecionar 1
+    $titulo = $noticia['titulo_noticia'];
+    $texto = $noticia['texto_noticia'];
+    $imagem = $noticia['imagem_noticia'];
+  }
+}
+
+?>
+
 <div class="row container-fluid">
   <div class="col-sm-2"></div>
 
   <div class="col-sm-8">
     <br>
-    <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícia NUMERO1</strong></h1>
+    <h1 style="font-size: 70px; color: #760E9A;"><strong><?php echo $titulo; ?></strong></h1>
     <hr>
     <h5>Por: Lorem Ipsum</h5>
     <br>
- 	  <img src="carrossel1.png" class="rounded" alt="..." style="max-width: 100%;">
+ 	  <img src="<?php echo $imagem; ?>" class="rounded" alt="..." style="max-width: 100%;">
   <br><br>
   <h6>Descrição sobre foto | Postado 14 de Abril, às 00:00</h6>
   <hr>
   <br>
-  <h5>    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p>It
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-    </p><p>It
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></h5>
+  <h5>    <p><?php echo $texto; ?></p></h5>
     <br>
     <hr>
   </div>
@@ -100,7 +110,7 @@ if(isset($_GET['id_noticia'])){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="index.html" class="text-white"><strong>Home</strong></a>
+              <a href="index.php" class="text-white"><strong>Home</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
