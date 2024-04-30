@@ -1,6 +1,14 @@
+<?php
+include('conexao.php');
+if(isset($_GET['id_noticia'])){
+  $id_noticia = $GET['id_noticia'];
+  $sql1 = 'SELECT FROM noticia WHERE id_noticia = '.$id_noticia;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="Cache-Control" content="no-store" /> <!--  REMOVER -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <!--- Boostrap --->
