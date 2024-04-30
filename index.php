@@ -1,7 +1,7 @@
 <?php
   include('conexao.php');
   $sql1 = 'SELECT * FROM carrossel WHERE status_carrossel = 1 ORDER BY id_carrossel ASC'; //listar carrosseis ativos
-  $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DEC'; //listar noticias ativas
+  $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DESC LIMIT 3'; //listar noticias ativas
 ?>
 <!DOCTYPE html>
 <html>
@@ -116,17 +116,30 @@
     <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícias</strong></h1>
     <br>
 
-    <!-- CARD NOTÍCIA 1 -->
+  <!-- CARD NOTÍCIA 1 -->
 
-    <div class="card mb-3" style="max-width: 1440px;">
+<?php
+
+$executa = $con->query($sql2);
+  if($executa -> fetch_array() == ""){ 
+    //caso nao tenha nenhum
+    echo 
+      '';
+  }else{
+    // caso tenha grupos para listar
+    $executa = $con->query($sql2);
+    while($noticia = $executa -> fetch_array()){//seleciona um loop de 3 items
+      $texto_noticia = $noticia['texto_noticia'] > 128 ? substr($noticia['texto_noticia'], 0, 128) . "..." : $noticia['texto_noticia'];
+      echo 
+      '<div class="card mb-3" style="max-width: 1440px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="noticias.html"><img src="not1.jpg" class="img-fluid rounded-start" alt="..."></a>
+          <a href="noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="..."></a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h4 class="card-title"><strong>Notícia SISPUMI 1</strong></h4>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h4 class="card-title"><strong>'.$noticia['titulo_noticia'].'</strong></h4>
+            <p class="card-text">'.$texto_noticia.'</p>
             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
           </div>
         </div>
@@ -135,9 +148,13 @@
 
     <br>
     <hr>
-    <br>
+    <br>';
+    }
+  }
+?>
+    
 
-    <!-- FIM CAR 1 -->
+    <!-- FIM CARD 1 -->
 
   <h2 style="text-align: center; color: #760E9A;">
     <strong>Confira mais notícias! </strong><i class="fa-solid fa-arrow-right"></i>
