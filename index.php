@@ -80,7 +80,7 @@
         </div>
       </div>';
   }else{
-    // caso tenha grupos para listar
+    // caso tenha noticias para listar
     $executa = $con->query($sql1);
     while($slide = $executa -> fetch_array()){//Loop que seleciona os slides (quantos houver)
       echo 

@@ -1,3 +1,8 @@
+<?php
+include('conexao.php');
+$sql1 = 'SELECT * FROM servico WHERE status_servico = 1 ORDER BY id_servico DESC';
+$ladoServico = "esquerda";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,80 +69,60 @@
     <br>
     <!-- Card 1 -->
 
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="svc1.png" class="img-fluid rounded-start" alt="...">
-      </div>
-        <div class="col-md-8">
-        <div class="card-body">
-          <h4 class="card-title"><strong>Serviço 1</strong></h4>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
-      </div>
-    </div>
-      </div>
-    </div>
-    <hr>
-
-    <!-- Card 2 -->
-
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row g-0">
-        
-        <div class="col-md-8">
-        <div class="card-body" style="text-align: right;">
-          <h4 class="card-title"><strong>Serviço 2</strong></h4>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-          <img src="svc2.png" class="img-fluid rounded-start" alt="...">
+<?php
+$executa = $con->query($sql1);
+if($executa -> fetch_array() == ""){
+    //caso nao tenha nenhum
+    echo 'nada'; // REMOVER
+  }else{
+    //caso tenha serviços para listar
+    $executa = $con->query($sql1);
+    while($servico = $executa -> fetch_array()){
+      if($ladoServico == "esquerda"){
+        echo '
+        <div class="card mb-3" style="max-width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="'.$servico['imagem_servico'].'" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title"><strong>'.$servico['nm_servico'].'</strong></h4>
+                <p class="card-text">'.$servico['desc_servico'].'</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <a href="'.$servico['link_servico'].'" target="_blank" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <hr>
+        <hr>';
 
-    <!-- Card 3 -->
-    
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="svc3.png" class="img-fluid rounded-start" alt="...">
+        $ladoServico = "direita";
+      }else{
+        echo '
+        <div class="card mb-3" style="max-width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body" style="text-align: right;">
+                <h4 class="card-title"><strong>'.$servico['nm_servico'].'</strong></h4>
+                <p class="card-text">'.$servico['desc_servico'].'</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <a href="'.$servico['link_servico'].'" target="_blank" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img src="'.$servico['imagem_servico'].'" class="img-fluid rounded-start" alt="...">
+            </div>
+          </div>
         </div>
-        <div class="col-md-8">
-        <div class="card-body">
-          <h4 class="card-title"><strong>Serviço 3</strong></h4>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
-      </div>
-    </div>
-      </div>
-    </div>
-    <hr>
+        <hr>';
 
-    <!-- Card 4 -->
+        $ladoServico = "esquerda";
+      }
+    }
+  }
+?>
 
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row g-0">
-        <div class="col-md-8">
-        <div class="card-body" style="text-align: right;">
-          <h4 class="card-title"><strong>Serviço 4</strong></h4>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
-      </div>
-    </div>
-     <div class="col-md-4">
-          <img src="svc4.png" class="img-fluid rounded-start" alt="...">
-        </div>
-      </div>
-    </div>
-    <hr>
     <br>
   <div class="col-sm-2"></div>
 </div>
