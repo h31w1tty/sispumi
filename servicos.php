@@ -1,14 +1,6 @@
-<?php
-include('conexao.php');
-if(isset($_GET['id_noticia'])){
-  $id_noticia = $_GET['id_noticia'];
-  $sql1 = 'SELECT * FROM noticia WHERE id_noticia = '.$id_noticia;
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Cache-Control" content="no-store" /> <!--  REMOVER -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <!--- Boostrap --->
@@ -25,7 +17,7 @@ if(isset($_GET['id_noticia'])){
   <link rel="shortcut icon" type="imagex/png" href="logo16.png">
 
 
-	<title>Notícias - SISPUMI</title>
+	<title>Serviços - SISPUMI</title>
 
   <style type="text/css">
     body{
@@ -49,7 +41,7 @@ if(isset($_GET['id_noticia'])){
           <a class="nav-link" aria-current="page" href="index.php" style="font-size: 25px;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="servicos.html" style="font-size: 25px;">Serviços</a>
+          <a class="nav-link active" href="servicos.php" style="font-size: 25px;">Serviços</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contato.html" style="font-size: 25px;">Contato</a>
@@ -61,41 +53,92 @@ if(isset($_GET['id_noticia'])){
 <!-- Fim da navbar -->
 <br>
 
-<?php
- $executa = $con->query($sql1);
-if($executa -> fetch_array() == ""){ 
-  //caso nao tenha nenhum
-  echo 'FUDEU FUDEU FUDEU';
-}else{
-  // caso tenha grupos para listar
-  $executa = $con->query($sql1);
-  while($noticia = $executa -> fetch_array()){//Loop vai selecionar 1
-    $titulo = $noticia['titulo_noticia'];
-    $texto = $noticia['texto_noticia'];
-    $imagem = $noticia['imagem_noticia'];
-  }
-}
-
-?>
-
 <div class="row container-fluid">
   <div class="col-sm-2"></div>
 
   <div class="col-sm-8">
     <br>
-    <h1 style="font-size: 70px; color: #760E9A;"><strong><?php echo $titulo; ?></strong></h1>
+    <h1 style="font-size: 70px; color: #760E9A;"><strong>Serviços</strong></h1>
     <hr>
-    <h5>Por: Lorem Ipsum</h5>
+    <h5>Confira os serviços disponibilizados pelos associados ao SISPUMI!</h5>
     <br>
- 	  <img src="<?php echo $imagem; ?>" class="rounded" alt="..." style="max-width: 100%;">
-  <br><br>
-  <h6>Descrição sobre foto | Postado 14 de Abril, às 00:00</h6>
-  <hr>
-  <br>
-  <h5>    <p><?php echo $texto; ?></p></h5>
-    <br>
+    <!-- Card 1 -->
+
+    <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="svc1.png" class="img-fluid rounded-start" alt="...">
+      </div>
+        <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title"><strong>Serviço 1</strong></h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
+      </div>
+    </div>
+      </div>
+    </div>
     <hr>
-  </div>
+
+    <!-- Card 2 -->
+
+    <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        
+        <div class="col-md-8">
+        <div class="card-body" style="text-align: right;">
+          <h4 class="card-title"><strong>Serviço 2</strong></h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+          <img src="svc2.png" class="img-fluid rounded-start" alt="...">
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Card 3 -->
+    
+    <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="svc3.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title"><strong>Serviço 3</strong></h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
+      </div>
+    </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Card 4 -->
+
+    <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-8">
+        <div class="card-body" style="text-align: right;">
+          <h4 class="card-title"><strong>Serviço 4</strong></h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <a href="#" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
+      </div>
+    </div>
+     <div class="col-md-4">
+          <img src="svc4.png" class="img-fluid rounded-start" alt="...">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br>
   <div class="col-sm-2"></div>
 </div>
 
@@ -118,7 +161,7 @@ if($executa -> fetch_array() == ""){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="servicos.html" class="text-white"><strong>Serviços</strong></a>
+              <a href="servicos.php" class="text-white"><strong>Serviços</strong></a>
             </h4>
           </div>
           <!-- Grid column -->

@@ -36,7 +36,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="index.php">
       <img src="logo.png" alt="..." height="46">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,10 +45,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html" style="font-size: 25px;">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php" style="font-size: 25px;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="servicos.html" style="font-size: 25px;">Serviços</a>
+          <a class="nav-link" href="servicos.php" style="font-size: 25px;">Serviços</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contato.html" style="font-size: 25px;">Contato</a>
@@ -208,7 +208,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="index.html" class="text-white"><strong>Home</strong></a>
+              <a href="index.php" class="text-white"><strong>Home</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -216,7 +216,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="servicos.html" class="text-white"><strong>Serviços</strong></a>
+              <a href="servicos.php" class="text-white"><strong>Serviços</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
