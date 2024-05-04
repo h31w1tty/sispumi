@@ -152,8 +152,7 @@ $executa = $con->query($sql2);
     }
   }
 ?>
-    
-
+  
     <!-- FIM CARD 1 -->
 
   <h2 style="text-align: center; color: #760E9A;">
@@ -170,14 +169,13 @@ $executa = $con->query($sql2);
   <br>
   <br>
   <div class="card mb-3">
-<a href="servicos.html"><img src="servicos2.jpg" class="card-img-top" alt="..."></a>
+<a href="servicos.php"><img src="servicos2.jpg" class="card-img-top" alt="..."></a>
 <div class="card-body">
   <h5 class="card-title" style="text-align: center; color: #760E9A;">Confira agora <i class="fa-solid fa-arrow-right"></i></h5>
 </div>
 </div>
 <div class="col-sm-1"></div>
 </div>
-
 
 <br>
 
