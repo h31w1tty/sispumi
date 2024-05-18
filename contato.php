@@ -36,13 +36,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.php" style="font-size: 25px;">Home</a>
+          <a class="nav-link" aria-current="page" href="./index.php" style="font-size: 25px;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="servicos.php" style="font-size: 25px;">Serviços</a>
+          <a class="nav-link" href="./servicos.php" style="font-size: 25px;">Serviços</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="contato.html" style="font-size: 25px;">Contato</a>
+          <a class="nav-link active" href="./contato.php" style="font-size: 25px;">Contato</a>
         </li>
       </ul>
     </div>
@@ -62,33 +62,33 @@
       <br>
       <h6 style="opacity: 50%;">(*) Campos obrigatórios</h6>
 
-      <form>
+      <form action="processar.php" method="POST">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput0" placeholder="nome">
-          <label for="floatingInput0">Nome completo *</label>
+            <input type="text" class="form-control" id="floatingInput0" name="nome" placeholder="nome">
+            <label for="floatingInput0">Nome completo *</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput1" placeholder="email">
-          <label for="floatingInput1">Email *</label>
+            <input type="email" class="form-control" id="floatingInput1" name="email" placeholder="email">
+            <label for="floatingInput1">Email *</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="tel" class="form-control" id="floatingInput2" placeholder="telefone">
-          <label for="floatingInput2">Telefone *</label>
+            <input type="tel" class="form-control" id="floatingInput2" name="telefone" placeholder="telefone">
+            <label for="floatingInput2">Telefone *</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput3" placeholder="assunto">
-          <label for="floatingInput3">Assunto *</label>
+            <input type="text" class="form-control" id="floatingInput3" name="assunto" placeholder="assunto">
+            <label for="floatingInput3">Assunto *</label>
         </div>
         <div class="form-floating mb-3">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
-          <label for="floatingTextarea2">Escreva sua mensagem *</label>
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="mensagem" style="height: 200px"></textarea>
+            <label for="floatingTextarea2">Escreva sua mensagem *</label>
         </div>
 
         <div class="col-sm-12" style="text-align: center;">
-          <button type="submit" class="btn btn-lg text-light" style="background-color: #760E9A;">Enviar</button>
+            <button type="submit" class="btn btn-lg text-light" style="background-color: #760E9A;">Enviar</button>
         </div>
-
       </form>
+
       <br>
       <hr>
     </div>

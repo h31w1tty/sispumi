@@ -51,7 +51,7 @@
           <a class="nav-link" href="servicos.php" style="font-size: 25px;">Serviços</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contato.html" style="font-size: 25px;">Contato</a>
+          <a class="nav-link" href="contato.php" style="font-size: 25px;">Contato</a>
         </li>
       </ul>
     </div>
