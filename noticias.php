@@ -3,6 +3,10 @@ include('conexao.php');
 if(isset($_GET['id_noticia'])){
   $id_noticia = $_GET['id_noticia'];
   $sql1 = 'SELECT * FROM noticia WHERE id_noticia = '.$id_noticia;
+}else{
+  session_start();
+  header("Location: ./index.php");
+  exit;
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +42,7 @@ if(isset($_GET['id_noticia'])){
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="index.php">
-      <img src="logo.png" alt="..." height="46">
+      <img src="./img/logo.png" alt="..." height="46">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,19 +66,21 @@ if(isset($_GET['id_noticia'])){
 <br>
 
 <?php
- $executa = $con->query($sql1);
-if($executa -> fetch_array() == ""){ 
-  //caso nao tenha nenhum
-  echo 'FUDEU FUDEU FUDEU';
-}else{
-  // caso tenha grupos para listar
+
   $executa = $con->query($sql1);
-  while($noticia = $executa -> fetch_array()){//Loop vai selecionar 1
-    $titulo = $noticia['titulo_noticia'];
-    $texto = $noticia['texto_noticia'];
-    $imagem = $noticia['imagem_noticia'];
+ 
+  if($executa -> fetch_array() == ""){ 
+    //caso nao tenha nenhum acho impossivel
+    echo 'erro';
+  }else{
+    // caso tenha grupos para listar
+    $executa = $con->query($sql1);
+    while($noticia = $executa -> fetch_array()){//Loop vai selecionar 1
+      $titulo = $noticia['titulo_noticia'];
+      $texto = $noticia['texto_noticia'];
+      $imagem = $noticia['imagem_noticia'];
+    }
   }
-}
 
 ?>
 
@@ -85,7 +91,7 @@ if($executa -> fetch_array() == ""){
     <br>
     <h1 style="font-size: 70px; color: #760E9A;"><strong><?php echo $titulo; ?></strong></h1>
     <hr>
-    <h5>Por: Lorem Ipsum</h5>
+    <h5>Por: IMPROVED inc.</h5>
     <br>
  	  <img src="<?php echo $imagem; ?>" class="rounded" alt="..." style="max-width: 100%;">
   <br><br>
@@ -149,7 +155,7 @@ if($executa -> fetch_array() == ""){
       
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8 text-white">
-            <img src="logo1.png" alt="..." height="150">
+            <img src="./img/logo1.png" alt="..." height="150">
             <p>
                Unindo Trabalhadores e Fortalecendo os seus Direitos!
             </p>
@@ -158,28 +164,6 @@ if($executa -> fetch_array() == ""){
       
       <!-- Section: Text -->
 
-      <!-- Section/MIDIAS SOCIAIS 
-      <section class="text-center mb-5">
-        <a href="" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-github"></i>
-        </a>
-      </section> -->
-      <!-- Section: Social -->
     </div>
     <!-- Grid container -->
 

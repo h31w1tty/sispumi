@@ -37,7 +37,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="index.php">
-      <img src="logo.png" alt="..." height="46">
+      <img src="./img/logo.png" alt="..." height="46">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -169,7 +169,7 @@ $executa = $con->query($sql2);
   <br>
   <br>
   <div class="card mb-3">
-<a href="servicos.php"><img src="servicos2.jpg" class="card-img-top" alt="..."></a>
+<a href="servicos.php"><img src="./img/servicos2.jpg" class="card-img-top" alt="..."></a>
 <div class="card-body">
   <h5 class="card-title" style="text-align: center; color: #760E9A;">Confira agora <i class="fa-solid fa-arrow-right"></i></h5>
 </div>
@@ -183,7 +183,7 @@ $executa = $con->query($sql2);
   <div class="col-sm-1"></div>
 
   <div class="col-sm-5">
-    <img src="sapiens.png" class="img-fluid" alt="...">
+    <img src="./img/sapiens.png" class="img-fluid" alt="...">
   </div>
   <div class="col-sm-5">
     <h1 style="font-size: 70px; color: #760E9A;"><strong>Quem somos nós?</strong></h1>
@@ -245,7 +245,7 @@ $executa = $con->query($sql2);
       
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8 text-white">
-            <img src="logo1.png" alt="..." height="150">
+            <img src="./img/logo1.png" alt="..." height="150">
             <p>
                Unindo Trabalhadores e Fortalecendo os seus Direitos!
             </p>
@@ -254,28 +254,6 @@ $executa = $con->query($sql2);
       
       <!-- Section: Text -->
 
-      <!-- Section/MIDIAS SOCIAIS 
-      <section class="text-center mb-5">
-        <a href="" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-github"></i>
-        </a>
-      </section> -->
-      <!-- Section: Social -->
     </div>
     <!-- Grid container -->
 

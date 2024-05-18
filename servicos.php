@@ -35,7 +35,7 @@ $ladoServico = "esquerda";
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="index.php">
-      <img src="logo.png" alt="..." height="46">
+      <img src="./img/logo.png" alt="..." height="46">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -177,7 +177,7 @@ if($executa -> fetch_array() == ""){
       
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8 text-white">
-            <img src="logo1.png" alt="..." height="150">
+            <img src="./img/logo1.png" alt="..." height="150">
             <p>
                Unindo Trabalhadores e Fortalecendo os seus Direitos!
             </p>
