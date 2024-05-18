@@ -1,13 +1,12 @@
 <?php
   include('conexao.php');
   $sql1 = 'SELECT * FROM carrossel WHERE status_carrossel = 1 ORDER BY id_carrossel ASC'; //listar carrosseis ativos
-  $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DESC LIMIT 3'; //listar noticias ativas
+  $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DESC'; //listar noticias ativas
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-  <meta http-equiv="Cache-Control" content="no-store" /> <!--  REMOVER -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <!--- Boostrap --->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -23,20 +22,19 @@
   <link rel="shortcut icon" type="imagex/png" href="logo16.png">
 
 
-	<title>SISPUMI</title>
+	<title>Serviços - SISPUMI</title>
 
   <style type="text/css">
     body{
       font-family: poppins;
     }
-
   </style>
 </head>
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="./index.php">
       <img src="./img/logo.png" alt="..." height="46">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,80 +43,33 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php" style="font-size: 25px;">Home</a>
+          <a class="nav-link" aria-current="page" href="./index.php" style="font-size: 25px;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="servicos.php" style="font-size: 25px;">Serviços</a>
+          <a class="nav-link" href="./servicos.php" style="font-size: 25px;">Serviços</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contato.html" style="font-size: 25px;">Contato</a>
+          <a class="nav-link" href="./contato.php" style="font-size: 25px;">Contato</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <!-- Fim da navbar -->
-
-<!-- Carrossel -->
-<div id="carouselExampleCaptions" class="carousel slide container-fluid" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-<?php
-  $executa = $con->query($sql1);
-  if($executa -> fetch_array() == ""){ 
-    //caso nao tenha nenhum
-    echo 
-      '<div class="carousel-item active">
-        <img src="https://i.pinimg.com/564x/6b/f5/58/6bf558033408ede03b0de5bc94143469.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h3>Aguardando Atualizações</h3>
-          <p> Por enquanto nada </p>
-        </div>
-      </div>';
-  }else{
-    // caso tenha noticias para listar
-    $executa = $con->query($sql1);
-    while($slide = $executa -> fetch_array()){//Loop que seleciona os slides (quantos houver)
-      echo 
-      '<div class="carousel-item active">
-        <img src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h3>'.$slide['titulo_carrossel'].'</h3>
-          <p>'.$slide['subtitulo_carrossel'].'</p>
-        </div>
-      </div>';
-
-    }
-  }
-?>
-</div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!-- Fim do carrossel -->
-
 <br>
-<div class="row container-fluid">
-  <div class="col-sm-1"></div>
 
-  <div class="col-sm-6">
+<div class="row container-fluid">
+  <div class="col-sm-2"></div>
+
+  <div class="col-sm-8">
     <br>
     <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícias</strong></h1>
+    <hr>
+    <h4>Se informe sobre as atualizações mais recentes conosco!</h4>
     <br>
+    <!-- Card 1 -->
 
-  <!-- CARD NOTÍCIA 1 -->
-
-<?php
+    <?php
 
 $executa = $con->query($sql2);
   if($executa -> fetch_array() == ""){ 
@@ -152,51 +103,14 @@ $executa = $con->query($sql2);
     }
   }
 ?>
-  <!-- FIM CARD 1 -->
-    
-  <a href="todasNoticias.php" style="text-decoration: none;">
-    <h2 style="text-align: center; color: #760E9A;">
-      <strong>Confira mais notícias! </strong><i class="fa-solid fa-arrow-right"></i>
-    </h2>
-  </a>
 
-<br>
-<br>
-<br>
-</div>
-
-<div class="col-sm-1"></div>
-
-<div class="col-sm-3">
-  <br>
-  <br>
-  <div class="card mb-3">
-<a href="servicos.php"><img src="./img/servicos2.jpg" class="card-img-top" alt="..."></a>
-<div class="card-body">
-  <h5 class="card-title" style="text-align: center; color: #760E9A;">Confira agora <i class="fa-solid fa-arrow-right"></i></h5>
-</div>
-</div>
-<div class="col-sm-1"></div>
-</div>
-
-<br>
-
-<div class="row container-fluid">
-  <div class="col-sm-1"></div>
-
-  <div class="col-sm-5">
-    <img src="./img/sapiens.png" class="img-fluid" alt="...">
-  </div>
-  <div class="col-sm-5">
-    <h1 style="font-size: 70px; color: #760E9A;"><strong>Quem somos nós?</strong></h1>
-    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially</h3>
     <br>
-  </div>
-  <div class="col-sm-1"></div>
+    <hr>
+    <br>
+    <br>
+  <div class="col-sm-2"></div>
 </div>
 
-<br>
-<br>
 <!-- RODAPÉ -->
 <footer class="text-center text-white bg-dark">
     <!-- Grid container -->
@@ -208,7 +122,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="index.php" class="text-white"><strong>Home</strong></a>
+              <a href="index.html" class="text-white"><strong>Home</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -216,7 +130,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="servicos.php" class="text-white"><strong>Serviços</strong></a>
+              <a href="servicos.html" class="text-white"><strong>Serviços</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
