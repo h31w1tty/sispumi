@@ -232,7 +232,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="login.html" class="text-white"><strong>Painel Administrativo</strong></a>
+              <a href="./login.php" class="text-white"><strong>Painel Administrativo</strong></a>
             </h4>
           </div>
           <!-- Grid column -->

@@ -132,7 +132,7 @@
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="login.html" class="text-white"><strong>Painel Administrativo</strong></a>
+              <a href="./login.html" class="text-white"><strong>Painel Administrativo</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -155,29 +155,6 @@
         </div>
       
       <!-- Section: Text -->
-
-      <!-- Section/MIDIAS SOCIAIS 
-      <section class="text-center mb-5">
-        <a href="" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-github"></i>
-        </a>
-      </section> -->
-      <!-- Section: Social -->
     </div>
     <!-- Grid container -->
 
