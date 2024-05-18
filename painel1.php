@@ -148,7 +148,7 @@
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
     
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 </html>
