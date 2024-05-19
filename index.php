@@ -1,7 +1,7 @@
 <?php
   include('conexao.php');
   $sql1 = 'SELECT * FROM carrossel WHERE status_carrossel = 1 ORDER BY id_carrossel ASC'; //listar carrosseis ativos
-  $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DESC LIMIT 3'; //listar noticias ativas
+  $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DESC LIMIT 3'; //listar ultimas 3 noticias ativas
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@
 </nav>
 <!-- Fim da navbar -->
 
-<!-- Carrossel -->
+<!-- ↓ Carrossel ↓ -->
 <div id="carouselExampleCaptions" class="carousel slide container-fluid" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -69,8 +69,7 @@
   <div class="carousel-inner">
 <?php
   $executa = $con->query($sql1);
-  if($executa -> fetch_array() == ""){ 
-    //caso nao tenha nenhum
+  if($executa -> fetch_array() == ""){ //Se NAO tiver noticias para listar
     echo 
       '<div class="carousel-item active">
         <img src="https://i.pinimg.com/564x/6b/f5/58/6bf558033408ede03b0de5bc94143469.jpg" class="d-block w-100" alt="...">
@@ -80,9 +79,9 @@
         </div>
       </div>';
   }else{
-    // caso tenha noticias para listar
+    // Se TIVER noticias para listar
     $executa = $con->query($sql1);
-    while($slide = $executa -> fetch_array()){//Loop que seleciona os slides (quantos houver)
+    while($slide = $executa -> fetch_array()){//Loop q seleciona os slides (quantos houver)
       echo 
       '<div class="carousel-item active">
         <img src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
@@ -105,18 +104,17 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<!-- Fim do carrossel -->
+<!-- ↑ Fim do carrossel ↑ -->
 
 <br>
 <div class="row container-fluid">
   <div class="col-sm-1"></div>
 
-  <div class="col-sm-6">
+    <div class="col-sm-6">
     <br>
     <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícias</strong></h1>
     <br>
-
-  <!-- CARD NOTÍCIA 1 -->
+    <!-- CARD NOTÍCIA 1 -->
 
 <?php
 
