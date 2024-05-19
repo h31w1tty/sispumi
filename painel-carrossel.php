@@ -1,3 +1,40 @@
+<?php
+    include('conexao.php');
+    if (isset($_GET['id_slide'])) {
+        $id_carrossel = $_GET['id_slide'];
+
+        if($id_carrossel != 0){
+            $sql1 = 'SELECT * FROM carrossel WHERE id_carrossel ='.$id_carrossel;
+            $executa = $con->query($sql1);
+            $carrossel = $executa->fetch_array();
+            $id  = $carrossel['id_carrossel'];
+            $titulo = $carrossel['titulo_carrossel'];
+            $descricao = $carrossel['subtitulo_carrossel'];
+            $link = $carrossel['link_carrossel'];
+            $imagem = $carrossel['imagem_carrossel'];
+            if($carrossel['status_carrossel'] == 1){
+                $status = "Ativo";
+            }else{
+                $status = "Inativo";
+            }
+        }else{
+            //adicionando novo slide
+        }
+
+    }else{
+        header("Location: ./painel1.php");
+    }
+
+    if($_POST){
+        $sql2 = 'DELETE FROM carrossel WHERE id_carrossel ='.$id_carrossel;
+        $btn = $_POST['btn'];
+        echo '';
+        if($btn == "deletar"){
+            $executa = $con->query($sql2);
+            header("Location: ./painel1.php");
+        }
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,55 +120,51 @@
         <div class="main p-3">
             <br>
             <br>
-                <h1 style="color: #760E9A;"><strong>Carrossel | Notícia para carrossel - 01 </strong></h1>
+                <h1 style="color: #760E9A;"><strong>Carrossel | <?php echo $titulo; ?> </strong></h1>
                 <hr>
                 <h4>Faça as alterações necessárias referentes ao carrosel da página.</h4>
                 <br>
                 <div class="text-center">
                 <div class="row">
+
                     <div class="col-sm-8">
+
+                        <form method="post">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">ID</span>
+                            <input type="text" class="form-control" placeholder="01" aria-label="Username" readonly value="<?php echo $id; ?>">
+                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Titulo</span>
-                            <input type="text" class="form-control" placeholder="Notícia para carrossel - 01" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon3">Autor</span>
-                                <input type="text" class="form-control" id="basic-url" placeholder="Lorem Ipsum" aria-describedby="basic-addon3 basic-addon4">
-                            </div>
+                            <input type="text" class="form-control" placeholder="Notícia para carrossel - 01" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Descrição</span>
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <textarea class="form-control" aria-label="With textarea"><?php echo $descricao; ?></textarea>
                         </div>
                         <div class="mb-3">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3">Link</span>
-                                <input type="text" class="form-control" id="basic-url" placeholder="www.sispumi.com/noticias-01.html" aria-describedby="basic-addon3 basic-addon4">
+                                <input type="text" class="form-control" id="basic-url" placeholder="www.sispumi.com/noticias-01.html" aria-describedby="basic-addon3 basic-addon4" value="<?php echo $link; ?>">
                             </div>
                         </div>
+
                         <div class="mb-3">
-                            <button type="button" class="btn btn-danger">Deletar</button>
-                            <button type="button" class="btn btn-warning">Suspender</button>
-                            <button type="button" class="btn btn-success">Salvar</button>
+                            <button type="submit" class="btn btn-danger" name="btn" value="deletar">Deletar</button>
+                            <button type="button" class="btn btn-warning" name="btn" value="status"><?php echo $status; ?></button>
+                            <button type="button" class="btn btn-success" name="btn" value="salvar">Salvar</button>
                         </div>
+                        </form>
+
                     </div>
                     <div class="col-sm-3">
-                        <img src="adm-carrossel.jpg" class="img-fluid" style="border-radius: 10px;">
+                        <img src="<?php echo $imagem; ?>" class="img-fluid" style="border-radius: 10px;">
                         <br>
                         <br>
                         <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> Selecione a Imagem</div>
                     </div>
                 </div>
-                <div class="row">
-                        <div class="col-sm-1">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">ID</span>
-                                <input type="text" class="form-control" placeholder="01" aria-label="Username">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
     

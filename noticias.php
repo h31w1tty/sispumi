@@ -4,9 +4,7 @@ if(isset($_GET['id_noticia'])){
   $id_noticia = $_GET['id_noticia'];
   $sql1 = 'SELECT * FROM noticia WHERE id_noticia = '.$id_noticia;
 }else{
-  session_start();
   header("Location: ./index.php");
-  exit;
 }
 ?>
 <!DOCTYPE html>
