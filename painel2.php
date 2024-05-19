@@ -102,27 +102,28 @@
                 <thead>
                     <tr>
                     <th>ID</th>
-                    <th>Título</th>
-                    <th>Subtítulo</th>
-                    <th>Status</th>
+                    <th>TÍTULO</th>
+                    <th>SUBTÍTULO</th>
+                    <th>IMAGEM</th>
+                    <th>STATUS</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                     $executa = $con ->query($sql1);
-                    while($slide = $executa -> fetch_array()){
-                        $subtitulo_carrossel = $slide['subtitulo_carrossel'] > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
-                        if($slide['status_carrossel'] == 1){
+                    while($servico = $executa -> fetch_array()){
+                        $desc_servico = $servico['desc_servico'] > 40 ? substr($servico['desc_servico'], 0, 40) . "..." : $servico['desc_servico'];
+                        if($servico['status_servico'] == 1){
                             $status = "ATIVO";
                         }else{
                             $status = "INATIVO";
                         }
                         echo '
                         <tr>
-                            <td>'.$slide['id_carrossel'].'</td>
-                            <td>'.$slide['titulo_carrossel'].'</td>
-                            <td>'.$subtitulo_carrossel.'</td>
-                            <td><img src="'.$slide['imagem_carrossel'].'" alt="link-img" style="height: 5vh;" ></td>
+                            <td>'.$servico['id_servico'].'</td>
+                            <td>'.$servico['nm_servico'].'</td>
+                            <td>'.$desc_servico.'</td>
+                            <td><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></td>
                             <td>'.$status.'</td>
                         </tr>';
                     }
