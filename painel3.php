@@ -1,3 +1,7 @@
+<?php
+    include('conexao.php');
+    $sql1 = 'SELECT * FROM noticia ORDER BY id_noticia DESC'; //listar noticias
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,38 +91,51 @@
         <div class="main p-3">
             <br>
             <br>
-                <h1 style="color: #760E9A;"><strong>Notícias</strong></h1>
-                <hr>
-                <h4>Edite as configurações referentes à página de notícias do SISPUMI.</h4>
-                <br>
-                <div class="text-center">
+            <h1 style="color: #760E9A;"><strong>Notícias</strong></h1>
+            <hr>
+            <h4>Edite as configurações referentes à página de notícias do SISPUMI.</h4>
+            <br>
+            <div class="text-center">
                 <div class="row">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>Subtítulo</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>(variável id)</td>
-                            <td>(variável Título)</td>
-                            <td>(variável subtitulo)</td>
-                            <td>(variável status)</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>TÍTULO</th>
+                                <th>SUBTÍTULO</th>
+                                <th>IMAGEM</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $executa = $con ->query($sql1);
+                                while($noticia = $executa -> fetch_array()){
+                                    $texto_noticia = $noticia['texto_noticia'] > 40 ? substr($noticia['texto_noticia'], 0, 40) . "..." : $noticia['texto_noticia'];
+                                    if($noticia['status_noticia'] == 1){
+                                        $status = "ATIVO";
+                                    }else{
+                                        $status = "INATIVO";
+                                    }
+                                    echo '
+                                    <tr>
+                                        <td>'.$noticia['id_noticia'].'</td>
+                                        <td>'.$noticia['titulo_noticia'].'</td>
+                                        <td>'.$texto_noticia.'</td>
+                                        <td><img src="'.$noticia['imagem_noticia'].'" alt="link-img" style="height: 5vh;" ></td>
+                                        <td>'.$status.'</td>
+                                    </tr>';
+                                }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
                 <br>
                 <a class="btn btn-success btn-lg" href="painel-noticias.html" role="button">+ Adicionar conteúdo</a>
             </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
-    
+    </div>
     <script src="./js/script.js"></script>
-
 </body>
 </html>
