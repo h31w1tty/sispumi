@@ -1,11 +1,7 @@
-<?php
-    include('conexao.php');
-    $sql1 = 'SELECT * FROM carrossel ORDER BY id_carrossel DESC'; //listar carrosseis
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <!--- Boostrap --->
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
@@ -19,30 +15,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!--- Logo na Barra -->
     <link rel="shortcut icon" type="imagex/png" href="./img/logo16.png">
-    <link rel="stylesheet" href="./css/painel00.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 	<title>Painel Administrativo - SISPUMI</title>
 
-	
-
 	<style type="text/css">
     	body{
       		font-family: poppins;
     	}
-        a {
-            text-decoration: none;
-            color: black;
-        }
 	</style>
 </head>
 <body>
-
 	<div class="wrapper">
-
-        <!-- ↓ NAVEGAÇÃO LATERAL ↓ -->
         <aside id="sidebar" class="bg-dark">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -66,20 +52,20 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="./painel1.php" class="sidebar-link">
+                    <a href="painel00.html" class="sidebar-link">
                         <i class="lni lni-gallery"></i>
                         <span><strong>Carrossel</strong></span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="./painel2.php" class="sidebar-link">
+                    <a href="painel01.html" class="sidebar-link">
                         <i class="lni lni-rocket"></i>
                         <span><strong>Serviços</strong></span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="./painel3.php" class="sidebar-link">
+                    <a href="painel02.html" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span><strong>Notícias</strong></span>
                     </a>
@@ -92,58 +78,60 @@
                 </a>
             </div>
         </aside>
-        <!-- ↑ NAVEGAÇÃO LATERAL ↑ -->
 
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
         <div class="main p-3">
             <br>
             <br>
-            <h1 style="color: #760E9A;"><strong>Carrossel</strong></h1>
-            <hr>
-            <h4>Edite as configurações referentes ao carrosel da página.</h4>
-            <br>
-            <div class="text-center">
-                <div class="row">
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>TÍTULO</th>
-                                <th>SUBTÍTULO</th>
-                                <th>IMAGEM</th>
-                                <th>STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <?php
-                                    $executa = $con ->query($sql1);
-                                    while($slide = $executa -> fetch_array()){
-                                        $subtitulo_carrossel = $slide['subtitulo_carrossel'] > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
-                                        if($slide['status_carrossel'] == 1){
-                                            $status = "ATIVO";
-                                        }else{
-                                            $status = "INATIVO";
-                                        }
-                                        echo '
-                                        <a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">
-                                        <div>
-                                        <tr>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['id_carrossel'].'</a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['titulo_carrossel'].'</a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$subtitulo_carrossel.'</a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'"><img src="'.$slide['imagem_carrossel'].'" alt="link-img" style="height: 5vh;" ></a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$status.'</a></td>
-                                        </tr>';
-                                    }
-                                ?>
-                        </tbody>
-                    </table>
-
-                </div>
+                <h1 style="color: #760E9A;"><strong>Carrossel | Notícia para carrossel - 01 </strong></h1>
+                <hr>
+                <h4>Faça as alterações necessárias referentes ao carrosel da página.</h4>
                 <br>
-                <a class="btn btn-success btn-lg" href="painel-carrossel.html" role="button">+ Adicionar conteúdo</a>
-            </div>
+                <div class="text-center">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Titulo</span>
+                            <input type="text" class="form-control" placeholder="Notícia para carrossel - 01" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">Autor</span>
+                                <input type="text" class="form-control" id="basic-url" placeholder="Lorem Ipsum" aria-describedby="basic-addon3 basic-addon4">
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Descrição</span>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">Link</span>
+                                <input type="text" class="form-control" id="basic-url" placeholder="www.sispumi.com/noticias-01.html" aria-describedby="basic-addon3 basic-addon4">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-danger">Deletar</button>
+                            <button type="button" class="btn btn-warning">Suspender</button>
+                            <button type="button" class="btn btn-success">Salvar</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="adm-carrossel.jpg" class="img-fluid" style="border-radius: 10px;">
+                        <br>
+                        <br>
+                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> Selecione a Imagem</div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-1">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">ID</span>
+                                <input type="text" class="form-control" placeholder="01" aria-label="Username">
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
     
