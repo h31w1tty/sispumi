@@ -1,3 +1,67 @@
+<?php
+    include('conexao.php');
+    if (isset($_GET['id_servico'])) {
+        $id_servico = $_GET['id_servico'];
+
+        if($id_servico != 0){ //caso tenha sido selecionado uma tupla, vai nomear as variaveis com as informações do banco
+            $sql1 = 'SELECT * FROM servico WHERE id_servico ='.$id_servico;
+            $executa = $con->query($sql1);
+            $servico = $executa->fetch_array();
+            $id  = $servico['id_servico'];
+            $titulo = $servico['nm_servico'];
+            $descricao = $servico['desc_servico'];
+            $link = $servico['link_servico'];
+            $imagem = $servico['imagem_servico'];
+            if($servico['status_servico'] == 1){
+                $status = "Ativo";
+            }else{
+                $status = "Inativo";
+            }
+        }else{//caso esteja no modo de adicionar nova tupla, deixar variaveis em branco(necessário)
+            $id  = "";
+            $titulo = "Novo Serviço";
+            $descricao = "";
+            $link = "";
+            $imagem = "./img/logo-escura.png";
+        }
+
+    }else{
+        header("Location: ./painel2.php");
+    }
+
+    if($_POST){//caso tenha apertado algum botao
+        
+        $btn = $_POST['btn'];
+        if($btn == "deletar"){//se o botao for o deletar, vai deletar a tupla
+            $sql2 = 'DELETE FROM servico WHERE id_servico ='.$id_servico;
+            $executa = $con->query($sql2);
+            header("Location: ./painel2.php");
+        }else if($btn == "salvar" && $id_servico == 0){//se o botão for o salvar e estiver no modo de novo item, vai adicionar nova tupla
+            $titulo = $_POST['titulo'];
+            $subtitulo = $_POST['subtitulo'];
+            $imagem = $_POST['imagem'];
+            $link = $_POST['link'];
+            $status = $_POST['status'];
+
+            $sql3 = 'INSERT INTO servico 
+            (id_servico, nm_servico, desc_servico, imagem_servico, link_servico, status_servico, adm_id_adm) VALUES
+            (null, "'.$titulo.'", "'.$subtitulo.'", "'.$imagem.'", "'.$link.'", '.$status.', null)';
+            $executa = $con->query($sql3);
+            header("Location: ./painel2.php");
+        }else if($btn == "salvar" && $id_servico != 0){//caso o botao for o salvar e nao estiver no modo de novo item, vai atualizar a tupla
+            $titulo = $_POST['titulo'];
+            $subtitulo = $_POST['subtitulo'];
+            $imagem = $_POST['imagem'];
+            $link = $_POST['link'];
+            $status = $_POST['status'];
+
+            $sql4 = 'UPDATE servico
+            SET nm_servico = "'.$titulo.'", desc_servico = "'.$subtitulo.'", imagem_servico = "'.$imagem.'", link_servico = "'.$link.'", status_servico = '.$status.' WHERE id_servico ='.$id_servico;
+            $executa = $con->query($sql4);
+            header("Location: ./painel2.php");
+        }
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +90,25 @@
       		font-family: poppins;
     	}
 	</style>
+    <script>
+    function botao(){
+        let status = document.querySelector("#status");
+        let alternador = document.querySelector("#alternador");
+        
+        if(alternador.textContent == "Ativo"){
+            alternador.textContent  = "Inativo";
+            status.value = 0;
+        }else{
+            alternador.textContent = "Ativo";
+            status.value = 1;
+        }
+    }
+    </script>
 </head>
 <body>
 	<div class="wrapper">
+
+        <!-- ↓ NAVEGAÇÃO LATERAL ↓ -->
         <aside id="sidebar" class="bg-dark">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -52,86 +132,89 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="painel00.html" class="sidebar-link">
+                    <a href="./painel1.php" class="sidebar-link">
                         <i class="lni lni-gallery"></i>
                         <span><strong>Carrossel</strong></span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="painel01.html" class="sidebar-link">
+                    <a href="./painel2.php" class="sidebar-link">
                         <i class="lni lni-rocket"></i>
                         <span><strong>Serviços</strong></span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="painel02.html" class="sidebar-link">
+                    <a href="./painel3.php" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span><strong>Notícias</strong></span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="login.html" class="sidebar-link">
+                <a href="./login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span><strong>Sair</strong></span>
                 </a>
             </div>
         </aside>
+        <!-- ↑ NAVEGAÇÃO LATERAL ↑ -->
 
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
         <div class="main p-3">
             <br>
             <br>
-                <h1 style="color: #760E9A;"><strong>Serviços | Serviço - 01 </strong></h1>
-                <hr>
-                <h4>Faça as alterações necessárias para o serviço da página.</h4>
-                <br>
-                <div class="text-center">
+            <h1 style="color: #760E9A;"><strong>Serviços | <?php echo $titulo ?> </strong></h1>
+            <hr>
+            <h4>Faça as alterações necessárias para o serviço da página.</h4>
+            <br>
+            <div class="text-center">
                 <div class="row">
+
                     <div class="col-sm-8">
+
+                        <form method="post">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">ID</span>
+                            <input name="id" type="text" class="form-control" placeholder="01" aria-label="Username" readonly value="<?php echo $id; ?>">
+                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Titulo</span>
-                            <input type="text" class="form-control" placeholder="Serviço - 01" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon3">Autor</span>
-                                <input type="text" class="form-control" id="basic-url" placeholder="Lorem Ipsum" aria-describedby="basic-addon3 basic-addon4">
-                            </div>
+                            <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Descrição</span>
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <textarea name="subtitulo" class="form-control" aria-label="With textarea" maxlength="100"><?php echo $descricao; ?></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">Imagem</span>
+                                <input name="imagem" type="text" class="form-control" id="basic-url" placeholder="Link da sua Imagem" aria-describedby="basic-addon3 basic-addon4" value="<?php echo $imagem; ?>">
+                            </div>
                         </div>
                         <div class="mb-3">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3">Link</span>
-                                <input type="text" class="form-control" id="basic-url" placeholder="www.sispumi.com/noticias-01.html" aria-describedby="basic-addon3 basic-addon4">
+                                <input name="link" type="text" class="form-control" id="basic-url" placeholder="www.seuLink.com" aria-describedby="basic-addon3 basic-addon4" value="<?php echo $link; ?>">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-danger">Deletar</button>
-                            <button type="button" class="btn btn-warning">Suspender</button>
-                            <button type="button" class="btn btn-success">Salvar</button>
+                            <button type="submit" class="btn btn-danger" name="btn" value="deletar">Deletar</button>
+                            <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador">Ativo</button>
+                            <button type="submit" class="btn btn-success" name="btn" value="salvar">Salvar</button>
                         </div>
+                        <input type="hidden" value="1" name="status" id=status>
+                        </form>
+
                     </div>
                     <div class="col-sm-3">
-                        <img src="servico.jpg" class="img-fluid" style="border-radius: 10px;">
+                        <img src="<?php echo $imagem; ?>" class="img-fluid" style="border-radius: 10px;">
                         <br>
                         <br>
-                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> Selecione a Imagem</div>
+                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> sua imagem</div>
                     </div>
                 </div>
-                <div class="row">
-                        <div class="col-sm-1">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">ID</span>
-                                <input type="text" class="form-control" placeholder="01" aria-label="Username">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
     

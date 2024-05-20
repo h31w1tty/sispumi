@@ -83,7 +83,7 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="login.html" class="sidebar-link">
+                <a href="./login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span><strong>Sair</strong></span>
                 </a>
@@ -124,11 +124,11 @@
                         }
                         echo '
                         <tr>
-                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$servico['id_servico'].'</a></td>
-                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$servico['nm_servico'].'</a></td>
-                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$desc_servico.'</a></td>
-                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'"><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></a></td>
-                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$status.'</a></td>
+                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$servico['id_servico'].'</a></td>
+                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$servico['nm_servico'].'</a></td>
+                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$desc_servico.'</a></td>
+                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'"><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></a></td>
+                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$status.'</a></td>
                         </tr>';
                     }
                 ?>
@@ -137,7 +137,7 @@
 
             </div>
                 <br>
-                <a class="btn btn-success btn-lg" href="painel-servicos.html" role="button">+ Adicionar conteúdo</a>
+                <a class="btn btn-success btn-lg" href="painel-servicos.php?id_servico=0" role="button">+ Adicionar conteúdo</a>
             </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>

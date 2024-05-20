@@ -103,12 +103,12 @@
             status.value = 1;
         }
     }
-</script>
+    </script>
 </head>
 <body>
 	<div class="wrapper">
 
-         <!-- ↓ NAVEGAÇÃO LATERAL ↓ -->
+        <!-- ↓ NAVEGAÇÃO LATERAL ↓ -->
         <aside id="sidebar" class="bg-dark">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
