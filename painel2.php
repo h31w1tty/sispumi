@@ -30,6 +30,10 @@
         body{
             font-family: poppins;
         }
+        a {
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -120,11 +124,11 @@
                         }
                         echo '
                         <tr>
-                            <td>'.$servico['id_servico'].'</td>
-                            <td>'.$servico['nm_servico'].'</td>
-                            <td>'.$desc_servico.'</td>
-                            <td><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></td>
-                            <td>'.$status.'</td>
+                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$servico['id_servico'].'</a></td>
+                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$servico['nm_servico'].'</a></td>
+                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$desc_servico.'</a></td>
+                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'"><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></a></td>
+                            <td><a href="painel-servicos.php?id_slide='.$servico['id_servico'].'">'.$status.'</a></td>
                         </tr>';
                     }
                 ?>

@@ -126,8 +126,6 @@
                                             $status = "INATIVO";
                                         }
                                         echo '
-                                        <a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">
-                                        <div>
                                         <tr>
                                             <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['id_carrossel'].'</a></td>
                                             <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['titulo_carrossel'].'</a></td>
