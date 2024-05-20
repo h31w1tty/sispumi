@@ -86,7 +86,7 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="login.html" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span><strong>Sair</strong></span>
                 </a>
@@ -142,7 +142,7 @@
 
                 </div>
                 <br>
-                <a class="btn btn-success btn-lg" href="painel-carrossel.html" role="button">+ Adicionar conteúdo</a>
+                <a class="btn btn-success btn-lg" href="painel-carrossel.php?id_slide=0" role="button">+ Adicionar conteúdo</a>
             </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>

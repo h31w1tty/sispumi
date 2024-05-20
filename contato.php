@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <!--- Boostrap --->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<script src="./js/bootstrap.min.js"></script>
   <!--- FIM Boostrap --->
   <!--- Font Awesome (Icones) --->
   <script src="https://kit.fontawesome.com/68670ab6e8.js" crossorigin="anonymous"></script>
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <!--- Logo na Barra -->
-  <link rel="shortcut icon" type="imagex/png" href="logo16.png">
+  <link rel="shortcut icon" type="imagex/png" href="./img/logo16.png">
 	<title>Contato - SISPUMI</title>
 
   <style type="text/css">
@@ -28,7 +28,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="index.php">
-      <img src="logo.png" alt="..." height="46">
+      <img src="./img/logo.png" alt="..." height="46">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -132,7 +132,7 @@
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="./login.html" class="text-white"><strong>Painel Administrativo</strong></a>
+              <a href="./login.php" class="text-white"><strong>Painel Administrativo</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -147,7 +147,7 @@
       
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8 text-white">
-            <img src="logo1.png" alt="..." height="150">
+            <img src="./img/logo1.png" alt="..." height="150">
             <p>
                Unindo Trabalhadores e Fortalecendo os seus Direitos!
             </p>

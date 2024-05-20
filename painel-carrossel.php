@@ -18,7 +18,11 @@
                 $status = "Inativo";
             }
         }else{
-            //adicionando novo slide
+            $id  = "";
+            $titulo = "Novo Slide";
+            $descricao = "";
+            $link = "";
+            $imagem = "./img/logo-escura.png";
         }
 
     }else{
@@ -26,11 +30,34 @@
     }
 
     if($_POST){
-        $sql2 = 'DELETE FROM carrossel WHERE id_carrossel ='.$id_carrossel;
+        
         $btn = $_POST['btn'];
-        echo '';
         if($btn == "deletar"){
+            $sql2 = 'DELETE FROM carrossel WHERE id_carrossel ='.$id_carrossel;
             $executa = $con->query($sql2);
+            header("Location: ./painel1.php");
+        }else if($btn == "salvar" && $id_carrossel == 0){
+            $titulo = $_POST['titulo'];
+            $subtitulo = $_POST['subtitulo'];
+            $imagem = $_POST['imagem'];
+            $link = $_POST['link'];
+            $status = $_POST['status'];
+
+            $sql3 = 'INSERT INTO carrossel 
+            (id_carrossel, titulo_carrossel, subtitulo_carrossel, imagem_carrossel, link_carrossel, status_carrossel, id_adm) VALUES
+            (null, "'.$titulo.'", "'.$subtitulo.'", "'.$imagem.'", "'.$link.'", '.$status.', null)';
+            $executa = $con->query($sql3);
+            header("Location: ./painel1.php");
+        }else if($btn == "salvar" && $id_carrossel != 0){
+            $titulo = $_POST['titulo'];
+            $subtitulo = $_POST['subtitulo'];
+            $imagem = $_POST['imagem'];
+            $link = $_POST['link'];
+            $status = $_POST['status'];
+
+            $sql4 = 'UPDATE carrossel
+            SET titulo_carrossel = "'.$titulo.'", subtitulo_carrossel = "'.$subtitulo.'", imagem_carrossel = "'.$imagem.'", link_carrossel = "'.$link.'", status_carrossel = '.$status.' WHERE id_carrossel ='.$id_carrossel;
+            $executa = $con->query($sql4);
             header("Location: ./painel1.php");
         }
     }
@@ -63,9 +90,25 @@
       		font-family: poppins;
     	}
 	</style>
+    <script>
+    function botao(){
+        let status = document.querySelector("#status");
+        let alternador = document.querySelector("#alternador");
+        
+        if(alternador.textContent == "Ativo"){
+            alternador.textContent  = "Inativo";
+            status.value = 0;
+        }else{
+            alternador.textContent = "Ativo";
+            status.value = 1;
+        }
+    }
+</script>
 </head>
 <body>
 	<div class="wrapper">
+
+         <!-- ↓ NAVEGAÇÃO LATERAL ↓ -->
         <aside id="sidebar" class="bg-dark">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -89,32 +132,33 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="painel00.html" class="sidebar-link">
+                    <a href="./painel1.php" class="sidebar-link">
                         <i class="lni lni-gallery"></i>
                         <span><strong>Carrossel</strong></span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="painel01.html" class="sidebar-link">
+                    <a href="./painel2.php" class="sidebar-link">
                         <i class="lni lni-rocket"></i>
                         <span><strong>Serviços</strong></span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="painel02.html" class="sidebar-link">
+                    <a href="./painel3.php" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span><strong>Notícias</strong></span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="login.html" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span><strong>Sair</strong></span>
                 </a>
             </div>
         </aside>
+        <!-- ↑ NAVEGAÇÃO LATERAL ↑ -->
 
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
         <div class="main p-3">
@@ -132,28 +176,34 @@
                         <form method="post">
                         <div class="input-group mb-3">
                             <span class="input-group-text">ID</span>
-                            <input type="text" class="form-control" placeholder="01" aria-label="Username" readonly value="<?php echo $id; ?>">
+                            <input name="id" type="text" class="form-control" placeholder="01" aria-label="Username" readonly value="<?php echo $id; ?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Titulo</span>
-                            <input type="text" class="form-control" placeholder="Notícia para carrossel - 01" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
+                            <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Descrição</span>
-                            <textarea class="form-control" aria-label="With textarea"><?php echo $descricao; ?></textarea>
+                            <textarea name="subtitulo" class="form-control" aria-label="With textarea" maxlength="100"><?php echo $descricao; ?></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">Imagem</span>
+                                <input name="imagem" type="text" class="form-control" id="basic-url" placeholder="Link da sua Imagem" aria-describedby="basic-addon3 basic-addon4" value="<?php echo $imagem; ?>">
+                            </div>
                         </div>
                         <div class="mb-3">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3">Link</span>
-                                <input type="text" class="form-control" id="basic-url" placeholder="www.sispumi.com/noticias-01.html" aria-describedby="basic-addon3 basic-addon4" value="<?php echo $link; ?>">
+                                <input name="link" type="text" class="form-control" id="basic-url" placeholder="www.seuLink.com" aria-describedby="basic-addon3 basic-addon4" value="<?php echo $link; ?>">
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <button type="submit" class="btn btn-danger" name="btn" value="deletar">Deletar</button>
-                            <button type="button" class="btn btn-warning" name="btn" value="status"><?php echo $status; ?></button>
-                            <button type="button" class="btn btn-success" name="btn" value="salvar">Salvar</button>
+                            <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador">Ativo</button>
+                            <button type="submit" class="btn btn-success" name="btn" value="salvar">Salvar</button>
                         </div>
+                        <input type="hidden" value="1" name="status" id=status>
                         </form>
 
                     </div>
@@ -161,7 +211,7 @@
                         <img src="<?php echo $imagem; ?>" class="img-fluid" style="border-radius: 10px;">
                         <br>
                         <br>
-                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> Selecione a Imagem</div>
+                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> sua imagem</div>
                     </div>
                 </div>
             </div>
