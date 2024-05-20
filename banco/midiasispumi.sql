@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/04/2024 às 21:22
+-- Tempo de geração: 20/05/2024 às 02:34
 -- Versão do servidor: 8.0.37
 -- Versão do PHP: 8.2.12
 
@@ -11,10 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Banco de dados: `midiasispumi`
@@ -30,7 +31,7 @@ CREATE TABLE `adm` (
   `id_adm` int NOT NULL,
   `login_adm` varchar(60) NOT NULL,
   `senha_adm` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -41,12 +42,12 @@ CREATE TABLE `adm` (
 CREATE TABLE `carrossel` (
   `id_carrossel` int NOT NULL,
   `titulo_carrossel` varchar(60) DEFAULT NULL,
-  `subtitulo_carrossel` varchar(60) DEFAULT NULL,
+  `subtitulo_carrossel` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `imagem_carrossel` text NOT NULL,
   `link_carrossel` text NOT NULL,
   `status_carrossel` int NOT NULL,
   `id_adm` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Despejando dados para a tabela `carrossel`
@@ -54,8 +55,8 @@ CREATE TABLE `carrossel` (
 
 INSERT INTO `carrossel` (`id_carrossel`, `titulo_carrossel`, `subtitulo_carrossel`, `imagem_carrossel`, `link_carrossel`, `status_carrossel`, `id_adm`) VALUES
 (2, 'UMA IMPRESSIONANTE COISA', 'Atualizações direto da nuvem para nossos usuários', 'https://i.pinimg.com/564x/b4/ea/e7/b4eae7b2b0cd369aafc42530cf328a43.jpg', 'fsdafsdaf', 1, NULL),
-(3, 'O que tem além das estrelas', 'Nossos especialistas descubriram coisas incriveis sobre isso', 'https://i.pinimg.com/564x/d6/99/fc/d699fceb840d20b1963cca0772275691.jpg', 'dsfasfdaf', 1, NULL),
-(4, 'Por que jovens vivem menos', 'Tantos idosos nas ruas só podem significar uma coisa', 'https://i.pinimg.com/564x/80/56/7b/80567bc09dce90f23a5716f2ce969c36.jpg', 'fdsafsdafsdaf', 1, NULL);
+(3, 'Hinata e Tobio', 'Sem brigas e agora parceiros', 'https://i.pinimg.com/564x/d6/99/fc/d699fceb840d20b1963cca0772275691.jpg', 'pudim.com.br', 1, NULL),
+(8, 'Finalmente as melhores condições', 'Depois da ultima reforma tudo melhorou, inclusive o amor ent', 'https://i.pinimg.com/564x/0b/2d/3b/0b2d3bdade879711dc5da3f11146898a.jpg', 'pudim.com.br', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -71,7 +72,7 @@ CREATE TABLE `noticia` (
   `link_noticia` text,
   `status_noticia` int NOT NULL,
   `adm_id_adm` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Despejando dados para a tabela `noticia`
@@ -96,8 +97,15 @@ CREATE TABLE `servico` (
   `imagem_servico` text,
   `link_servico` text,
   `status_servico` int NOT NULL,
-  `adm_id_adm` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `adm_id_adm` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Despejando dados para a tabela `servico`
+--
+
+INSERT INTO `servico` (`id_servico`, `nm_servico`, `desc_servico`, `imagem_servico`, `link_servico`, `status_servico`, `adm_id_adm`) VALUES
+(1, 'dinheiro gratis', 'agiota caridoso e bonzinho, pensa semple na satisfação do cliente e justiça para a sociedade, veja as melhores ofertas.', 'https://i.pinimg.com/564x/18/6c/45/186c45640aa1384648ad34d630cb4a7c.jpg', 'https://www.google.com', 1, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -144,7 +152,7 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT de tabela `carrossel`
 --
 ALTER TABLE `carrossel`
-  MODIFY `id_carrossel` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_carrossel` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `noticia`
@@ -156,7 +164,7 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de tabela `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
