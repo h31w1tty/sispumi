@@ -29,6 +29,10 @@
     body{
       font-family: poppins;
     }
+    a{
+      text-decoration: none;
+      color: black;
+    }
 
   </style>
 </head>
@@ -82,12 +86,13 @@
     // Se TIVER noticias para listar
     $executa = $con->query($sql1);
     while($slide = $executa -> fetch_array()){//Loop q seleciona os slides (quantos houver)
+      $link = $slide['link_carrossel'];
       echo 
       '<div class="carousel-item active">
         <img  style="width: auto; height: 650px" src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h3>'.$slide['titulo_carrossel'].'</h3>
-          <p>'.$slide['subtitulo_carrossel'].'</p>
+          <h3><a href="https://'.$link.'">'.$slide['titulo_carrossel'].'</a></h3>
+          <p><a href="https://'.$link.'">'.$slide['subtitulo_carrossel'].'</a></p>
         </div>
       </div>';
 
