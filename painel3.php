@@ -30,6 +30,10 @@
         body{
             font-family: poppins;
         }
+        a {
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -79,7 +83,7 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="login.html" class="sidebar-link">
+                <a href="./login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span><strong>Sair</strong></span>
                 </a>
@@ -119,11 +123,11 @@
                                     }
                                     echo '
                                     <tr>
-                                        <td>'.$noticia['id_noticia'].'</td>
-                                        <td>'.$noticia['titulo_noticia'].'</td>
-                                        <td>'.$texto_noticia.'</td>
-                                        <td><img src="'.$noticia['imagem_noticia'].'" alt="link-img" style="height: 5vh;" ></td>
-                                        <td>'.$status.'</td>
+                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$noticia['id_noticia'].'</a></td>
+                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$noticia['titulo_noticia'].'</a></td>
+                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$texto_noticia.'</a></td>
+                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" alt="link-img" style="height: 5vh;" ></a></td>
+                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$status.'</a></td>
                                     </tr>';
                                 }
                             ?>
@@ -131,7 +135,7 @@
                     </table>
                 </div>
                 <br>
-                <a class="btn btn-success btn-lg" href="painel-noticias.html" role="button">+ Adicionar conteúdo</a>
+                <a class="btn btn-success btn-lg" href="painel-noticias.php?id_noticia=0" role="button">+ Adicionar conteúdo</a>
             </div>
         </div>
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>

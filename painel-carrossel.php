@@ -164,11 +164,11 @@
         <div class="main p-3">
             <br>
             <br>
-                <h1 style="color: #760E9A;"><strong>Carrossel | <?php echo $titulo; ?> </strong></h1>
-                <hr>
-                <h4>Faça as alterações necessárias referentes ao carrosel da página.</h4>
-                <br>
-                <div class="text-center">
+            <h1 style="color: #760E9A;"><strong>Carrossel | <?php echo $titulo; ?> </strong></h1>
+            <hr>
+            <h4>Faça as alterações necessárias referentes ao carrosel da página.</h4>
+            <br>
+            <div class="text-center">
                 <div class="row">
 
                     <div class="col-sm-8">

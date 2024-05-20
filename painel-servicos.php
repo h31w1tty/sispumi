@@ -180,11 +180,11 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Titulo</span>
-                            <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
+                            <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?> " maxlength="40">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Descrição</span>
-                            <textarea name="subtitulo" class="form-control" aria-label="With textarea" maxlength="100"><?php echo $descricao; ?></textarea>
+                            <textarea name="subtitulo" class="form-control" aria-label="With textarea" maxlength="200"><?php echo $descricao; ?></textarea>
                         </div>
                         <div class="mb-3">
                             <div class="input-group">

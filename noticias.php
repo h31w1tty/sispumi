@@ -96,7 +96,7 @@ if(isset($_GET['id_noticia'])){
   <h6>Descrição sobre foto | Postado 14 de Abril, às 00:00</h6>
   <hr>
   <br>
-  <h5>    <p><?php echo $texto; ?></p></h5>
+  <h5>    <?php echo '<p>'.$texto.'</p>'; ?></h5>
     <br>
     <hr>
   </div>
@@ -114,7 +114,7 @@ if(isset($_GET['id_noticia'])){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="index.php" class="text-white"><strong>Home</strong></a>
+              <a href="./index.php" class="text-white"><strong>Home</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -122,7 +122,7 @@ if(isset($_GET['id_noticia'])){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="servicos.html" class="text-white"><strong>Serviços</strong></a>
+              <a href="./servicos.php" class="text-white"><strong>Serviços</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -130,7 +130,7 @@ if(isset($_GET['id_noticia'])){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="contato.html" class="text-white"><strong>Contato</strong></a>
+              <a href="./contato.php" class="text-white"><strong>Contato</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -138,7 +138,7 @@ if(isset($_GET['id_noticia'])){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="login.html" class="text-white"><strong>Painel Administrativo</strong></a>
+              <a href="./login.php" class="text-white"><strong>Painel Administrativo</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
