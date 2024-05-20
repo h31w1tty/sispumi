@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/05/2024 às 02:34
+-- Tempo de geração: 20/05/2024 às 18:45
 -- Versão do servidor: 8.0.37
 -- Versão do PHP: 8.2.12
 
@@ -56,7 +56,7 @@ CREATE TABLE `carrossel` (
 INSERT INTO `carrossel` (`id_carrossel`, `titulo_carrossel`, `subtitulo_carrossel`, `imagem_carrossel`, `link_carrossel`, `status_carrossel`, `id_adm`) VALUES
 (2, 'UMA IMPRESSIONANTE COISA', 'Atualizações direto da nuvem para nossos usuários', 'https://i.pinimg.com/564x/b4/ea/e7/b4eae7b2b0cd369aafc42530cf328a43.jpg', 'fsdafsdaf', 1, NULL),
 (3, 'Hinata e Tobio', 'Sem brigas e agora parceiros', 'https://i.pinimg.com/564x/d6/99/fc/d699fceb840d20b1963cca0772275691.jpg', 'pudim.com.br', 1, NULL),
-(8, 'Finalmente as melhores condições', 'Depois da ultima reforma tudo melhorou, inclusive o amor ent', 'https://i.pinimg.com/564x/0b/2d/3b/0b2d3bdade879711dc5da3f11146898a.jpg', 'pudim.com.br', 1, NULL);
+(8, 'Finalmente as melhores condições', 'Depois da ultima reforma tudo melhorou, inclusive o amor ent', 'https://i.pinimg.com/564x/0b/2d/3b/0b2d3bdade879711dc5da3f11146898a.jpg', 'pudim.com.br', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -79,10 +79,10 @@ CREATE TABLE `noticia` (
 --
 
 INSERT INTO `noticia` (`id_noticia`, `titulo_noticia`, `texto_noticia`, `imagem_noticia`, `link_noticia`, `status_noticia`, `adm_id_adm`) VALUES
-(1, 'Notica de agora', 'havia uma barata na careca do vovo assim que el a me viu bateu asas e voou 1233 casas, sem asas perderam seus maos agora nao tem como voltar , ar dfadfdasf da ulta masdtasd agora perderam seu pao.', 'https://i.pinimg.com/564x/cc/02/49/cc02498409e5a21e6ebee880d43e6cb6.jpg', 'https://br.pinterest.com/pin/1337074887489127/', 1, NULL),
 (2, 'Carro pacota e fica fofo', 'Carro em auta velocidade perde controle e fica todo fofinho quando se envergonha, as autoridades disseram que o fato de ser um carro rosa influencia bastante já que o rosa é uma cor que tras delicadeza e feminilidade', 'https://i.pinimg.com/564x/f5/47/2f/f5472fa56bc13f239ead616d64decbef.jpg', 'https://br.pinterest.com/pin/13440498880657310/', 1, NULL),
 (3, 'Morreu hoje, Relampago MCqueen', 'Nesta sextafeira de abril morre dia 21 relampago marquinhos amigo da vizinhança, o  carro ja estava passando por dificuldades na sua saude e tava tendo problemas para ligar o motor, os vizinhos alegam que toda noite pedia para fazer chupeta e manter seu motor aquecido, mas não foi suficiente', 'https://i.pinimg.com/564x/40/28/5d/40285d01f9cc54e2493ae3dcd6acad72.jpg', 'https://br.pinterest.com/pin/2955556000521802/', 1, NULL),
-(4, 'Protese braçal', 'Uma nova moda na área da tecnologia da superação de deficiencias comuns, o braço de tubarão é uma nova customisação corporal  e está disponivel em diferentes lojas, pode ser uma nova era meus amigos.', 'https://i.pinimg.com/564x/06/1a/44/061a44aa6a3471513aa5189bb6dd9eac.jpg', 'https://br.pinterest.com/pin/703756185210651/', 1, NULL);
+(4, 'Protese braçal', 'Uma nova moda na área da tecnologia da superação de deficiencias comuns, o braço de tubarão é uma nova customisação corporal  e está disponivel em diferentes lojas, pode ser uma nova era meus amigos.', 'https://i.pinimg.com/564x/06/1a/44/061a44aa6a3471513aa5189bb6dd9eac.jpg', 'https://br.pinterest.com/pin/703756185210651/', 1, NULL),
+(5, 'Nova empresa de Ônibus em Itanhaém', '<p>Uma nova frota de veículos foi avistada vindo para Itanhaém pelas montanhas, testemunhas dizem ter visto o que se parece com uma frota de pelo menos 15 veiculos de grande porte se locomovendo na florensta adentro em direção a baixada santista, foi dito que a devastação da flora nessa rota forma um rastro que pode ser visto inclusive no google maps. </p><p>A prefeitura nao se manifestou quanto a isso mas garantiu nas suas publicações que a empresa não especificava se os onibus viriam pela estrada ou não.</p>', 'https://i.pinimg.com/564x/1e/16/2d/1e162dce35232ecfc6283166c7411cd0.jpg', 'https://facebook.com.br', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,9 @@ CREATE TABLE `servico` (
 --
 
 INSERT INTO `servico` (`id_servico`, `nm_servico`, `desc_servico`, `imagem_servico`, `link_servico`, `status_servico`, `adm_id_adm`) VALUES
-(1, 'dinheiro gratis', 'agiota caridoso e bonzinho, pensa semple na satisfação do cliente e justiça para a sociedade, veja as melhores ofertas.', 'https://i.pinimg.com/564x/18/6c/45/186c45640aa1384648ad34d630cb4a7c.jpg', 'https://www.google.com', 1, NULL);
+(3, 'Serviço muito específico', 'Um serviço diferenciado ta ligado', 'https://i.pinimg.com/564x/f6/1f/dd/f61fddc1cfb370c34d674b52341da8b2.jpg', 'https://www.google.com.br', 1, NULL),
+(4, 'Dentista Genérico', 'Para você que gosta de ter um lindo sorriso! Aqui você encontra as melhores promoções do mercato.', 'https://i.pinimg.com/564x/a9/1c/26/a91c26531f82b59eb77222c4e2f75980.jpg', 'https://sorridents.com.br/', 1, NULL),
+(5, 'OEM Condom - Forneçimento de Camisinhas', 'Pra você que trabalha no cabaré ou precisa de muitas camisinhas durante o mês, temos um fornecimento', 'https://condomssupplier.com/wp-content/uploads/elementor/thumbs/OEM-Condom-ptbt9cqj38dw2mgiaou40s472edi2b4f6hveej8gc8.png', 'https://condomssupplier.com/oem-condom/?gad_source=1&gclid=Cj0KCQjw6auyBhDzARIsALIo6v-z7o-9qAVFn2LslvZ-sdA_GNKildqgn_xJbWRFmm1vaHRAgB4hJdgaAiDuEALw_wcB', 1, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -158,13 +160,13 @@ ALTER TABLE `carrossel`
 -- AUTO_INCREMENT de tabela `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id_noticia` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_noticia` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para tabelas despejadas
