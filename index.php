@@ -84,7 +84,7 @@
     while($slide = $executa -> fetch_array()){//Loop q seleciona os slides (quantos houver)
       echo 
       '<div class="carousel-item active">
-        <img src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
+        <img  style="width: auto; height: 650px" src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h3>'.$slide['titulo_carrossel'].'</h3>
           <p>'.$slide['subtitulo_carrossel'].'</p>
