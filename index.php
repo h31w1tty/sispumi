@@ -132,7 +132,7 @@ $executa = $con->query($sql2);
     // caso tenha grupos para listar
     $executa = $con->query($sql2);
     while($noticia = $executa -> fetch_array()){//seleciona um loop de 3 items
-      $texto_noticia = $noticia['texto_noticia'] > 128 ? substr($noticia['texto_noticia'], 0, 128) . "..." : $noticia['texto_noticia'];
+      $texto_noticia = strlen($noticia['texto_noticia']) > 128 ? substr($noticia['texto_noticia'], 0, 128) . "..." : $noticia['texto_noticia'];
       echo 
       '<div class="card mb-3" style="max-width: 1440px;">
       <div class="row g-0">
