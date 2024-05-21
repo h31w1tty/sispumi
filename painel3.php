@@ -101,38 +101,40 @@
             <br>
             <div class="text-center">
                 <div class="row">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>TÍTULO</th>
-                                <th>SUBTÍTULO</th>
-                                <th>IMAGEM</th>
-                                <th>STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $executa = $con ->query($sql1);
-                                while($noticia = $executa -> fetch_array()){
-                                    $texto_noticia = $noticia['texto_noticia'] > 40 ? substr($noticia['texto_noticia'], 0, 40) . "..." : $noticia['texto_noticia'];
-                                    if($noticia['status_noticia'] == 1){
-                                        $status = "ATIVO";
-                                    }else{
-                                        $status = "INATIVO";
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">TÍTULO</th>
+                                    <th scope="col">SUBTÍTULO</th>
+                                    <th scope="col">IMAGEM</th>
+                                    <th scope="col">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $executa = $con ->query($sql1);
+                                    while($noticia = $executa -> fetch_array()){
+                                        $texto_noticia = $noticia['texto_noticia'] > 40 ? substr($noticia['texto_noticia'], 0, 40) . "..." : $noticia['texto_noticia'];
+                                        if($noticia['status_noticia'] == 1){
+                                            $status = "ATIVO";
+                                        }else{
+                                            $status = "INATIVO";
+                                        }
+                                        echo '
+                                        <tr>
+                                            <td class="align-middle" scope="row"><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$noticia['id_noticia'].'</a></td>
+                                            <td class="align-middle"><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$noticia['titulo_noticia'].'</a></td>
+                                            <td class="align-middle"><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$texto_noticia.'</a></td>
+                                            <td class="align-middle "<a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" alt="link-img" style="height: 5vh;" ></a></td>
+                                            <td class="align-middle "><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$status.'</a></td>
+                                        </tr>';
                                     }
-                                    echo '
-                                    <tr>
-                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$noticia['id_noticia'].'</a></td>
-                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$noticia['titulo_noticia'].'</a></td>
-                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$texto_noticia.'</a></td>
-                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" alt="link-img" style="height: 5vh;" ></a></td>
-                                        <td><a href="painel-noticias.php?id_noticia='.$noticia['id_noticia'].'">'.$status.'</a></td>
-                                    </tr>';
-                                }
-                            ?>
-                        </tbody>
-                    </table>
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <br>
                 <a class="btn btn-success btn-lg" href="painel-noticias.php?id_noticia=0" role="button">+ Adicionar conteúdo</a>

@@ -105,38 +105,40 @@
             <div class="text-center">
                 <div class="row">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>TÍTULO</th>
-                                <th>SUBTÍTULO</th>
-                                <th>IMAGEM</th>
-                                <th>STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <?php
-                                    $executa = $con ->query($sql1);
-                                    while($slide = $executa -> fetch_array()){
-                                        $subtitulo_carrossel = $slide['subtitulo_carrossel'] > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
-                                        if($slide['status_carrossel'] == 1){
-                                            $status = "ATIVO";
-                                        }else{
-                                            $status = "INATIVO";
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">TÍTULO</th>
+                                    <th scope="col">SUBTÍTULO</th>
+                                    <th scope="col">IMAGEM</th>
+                                    <th scope="col">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <?php
+                                        $executa = $con ->query($sql1);
+                                        while($slide = $executa -> fetch_array()){
+                                            $subtitulo_carrossel = $slide['subtitulo_carrossel'] > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
+                                            if($slide['status_carrossel'] == 1){
+                                                $status = "ATIVO";
+                                            }else{
+                                                $status = "INATIVO";
+                                            }
+                                            echo '
+                                            <tr>
+                                                <td class="align-middle" scope="row"><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['id_carrossel'].'</a></td>
+                                                <td class="align-middle"><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['titulo_carrossel'].'</a></td>
+                                                <td class="align-middle"><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$subtitulo_carrossel.'</a></td>
+                                                <td class="align-middle"><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'"><img src="'.$slide['imagem_carrossel'].'" alt="link-img" style="height: 5vh;" ></a></td>
+                                                <td class="align-middle "><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$status.'</a></td>
+                                            </tr>';
                                         }
-                                        echo '
-                                        <tr>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['id_carrossel'].'</a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$slide['titulo_carrossel'].'</a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$subtitulo_carrossel.'</a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'"><img src="'.$slide['imagem_carrossel'].'" alt="link-img" style="height: 5vh;" ></a></td>
-                                            <td><a href="painel-carrossel.php?id_slide='.$slide['id_carrossel'].'">'.$status.'</a></td>
-                                        </tr>';
-                                    }
-                                ?>
-                        </tbody>
-                    </table>
+                                    ?>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
                 <br>
