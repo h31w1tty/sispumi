@@ -101,39 +101,40 @@
             <br>
             <div class="text-center">
             <div class="row">
-                
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>TÍTULO</th>
-                    <th>DESCRIÇÃO</th>
-                    <th>IMAGEM</th>
-                    <th>STATUS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    $executa = $con ->query($sql1);
-                    while($servico = $executa -> fetch_array()){
-                        $desc_servico = strlen($servico['desc_servico']) > 60 ? substr($servico['desc_servico'], 0, 60) . "..." : $servico['desc_servico'];
-                        if($servico['status_servico'] == 1){
-                            $status = "ATIVO";
-                        }else{
-                            $status = "INATIVO";
-                        }
-                        echo '
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$servico['id_servico'].'</a></td>
-                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$servico['nm_servico'].'</a></td>
-                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$desc_servico.'</a></td>
-                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'"><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></a></td>
-                            <td><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$status.'</a></td>
-                        </tr>';
-                    }
-                ?>
-                </tbody>
-            </table>
+                            <th scope="col">ID</th>
+                            <th scope="col">TÍTULO</th>
+                            <th scope="col">DESCRIÇÂO</th>
+                            <th scope="col">IMAGEM</th>
+                            <th scope="col">STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $executa = $con ->query($sql1);
+                        while($servico = $executa -> fetch_array()){
+                            $desc_servico = strlen($servico['desc_servico']) > 60 ? substr($servico['desc_servico'], 0, 60) . "..." : $servico['desc_servico'];
+                            if($servico['status_servico'] == 1){
+                                $status = "ATIVO";
+                            }else{
+                                $status = "INATIVO";
+                            }
+                            echo '
+                            <tr>
+                                <td class="align-middle" scope="row"><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$servico['id_servico'].'</a></td>
+                                <td class="align-middle"><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$servico['nm_servico'].'</a></td>
+                                <td class="align-middle"><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$desc_servico.'</a></td>
+                                <td class="align-middle"><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'"><img src="'.$servico['imagem_servico'].'" alt="link-img" style="height: 5vh;" ></a></td>
+                                <td class="align-middle "><a href="painel-servicos.php?id_servico='.$servico['id_servico'].'">'.$status.'</a></td>
+                            </tr>';
+                        }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
 
             </div>
                 <br>
