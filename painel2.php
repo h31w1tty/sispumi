@@ -101,14 +101,13 @@
             <br>
             <div class="text-center">
             <div class="row">
-                
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">TÍTULO</th>
-                            <th scope="col">SUBTÍTULO</th>
+                            <th scope="col">DESCRIÇÂO</th>
                             <th scope="col">IMAGEM</th>
                             <th scope="col">STATUS</th>
                         </tr>
@@ -117,7 +116,7 @@
                     <?php
                         $executa = $con ->query($sql1);
                         while($servico = $executa -> fetch_array()){
-                            $desc_servico = $servico['desc_servico'] > 40 ? substr($servico['desc_servico'], 0, 40) . "..." : $servico['desc_servico'];
+                            $desc_servico = strlen($servico['desc_servico']) > 60 ? substr($servico['desc_servico'], 0, 60) . "..." : $servico['desc_servico'];
                             if($servico['status_servico'] == 1){
                                 $status = "ATIVO";
                             }else{

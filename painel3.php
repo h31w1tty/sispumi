@@ -107,7 +107,7 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">TÍTULO</th>
-                                    <th scope="col">SUBTÍTULO</th>
+                                    <th scope="col">TEXTO</th>
                                     <th scope="col">IMAGEM</th>
                                     <th scope="col">STATUS</th>
                                 </tr>
@@ -116,7 +116,7 @@
                                 <?php
                                     $executa = $con ->query($sql1);
                                     while($noticia = $executa -> fetch_array()){
-                                        $texto_noticia = $noticia['texto_noticia'] > 40 ? substr($noticia['texto_noticia'], 0, 40) . "..." : $noticia['texto_noticia'];
+                                        $texto_noticia = strlen($noticia['texto_noticia']) > 80 ? substr($noticia['texto_noticia'], 0, 80) . "..." : $noticia['texto_noticia'];
                                         if($noticia['status_noticia'] == 1){
                                             $status = "ATIVO";
                                         }else{

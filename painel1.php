@@ -104,7 +104,6 @@
             <br>
             <div class="text-center">
                 <div class="row">
-
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
@@ -120,7 +119,7 @@
                                     <?php
                                         $executa = $con ->query($sql1);
                                         while($slide = $executa -> fetch_array()){
-                                            $subtitulo_carrossel = $slide['subtitulo_carrossel'] > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
+                                            $subtitulo_carrossel = strlen($slide['subtitulo_carrossel']) > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
                                             if($slide['status_carrossel'] == 1){
                                                 $status = "ATIVO";
                                             }else{
