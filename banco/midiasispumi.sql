@@ -1,81 +1,88 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- version 4.0.4.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Tempo de geração: 20/05/2024 às 18:45
--- Versão do servidor: 8.0.37
--- Versão do PHP: 8.2.12
+-- Máquina: localhost
+-- Data de Criação: 21-Maio-2024 às 01:33
+-- Versão do servidor: 5.6.13
+-- versão do PHP: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Banco de dados: `midiasispumi`
+-- Base de Dados: `midiasispumi`
 --
+CREATE DATABASE IF NOT EXISTS `midiasispumi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+USE `midiasispumi`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adm`
+-- Estrutura da tabela `adm`
 --
 
-CREATE TABLE `adm` (
-  `id_adm` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `adm` (
+  `id_adm` int(11) NOT NULL AUTO_INCREMENT,
   `login_adm` varchar(60) NOT NULL,
-  `senha_adm` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `senha_adm` varchar(60) NOT NULL,
+  PRIMARY KEY (`id_adm`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `carrossel`
+-- Estrutura da tabela `carrossel`
 --
 
-CREATE TABLE `carrossel` (
-  `id_carrossel` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `carrossel` (
+  `id_carrossel` int(11) NOT NULL AUTO_INCREMENT,
   `titulo_carrossel` varchar(60) DEFAULT NULL,
-  `subtitulo_carrossel` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `subtitulo_carrossel` varchar(100) DEFAULT NULL,
   `imagem_carrossel` text NOT NULL,
   `link_carrossel` text NOT NULL,
-  `status_carrossel` int NOT NULL,
-  `id_adm` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `status_carrossel` int(11) NOT NULL,
+  `id_adm` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_carrossel`),
+  KEY `id_adm` (`id_adm`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Despejando dados para a tabela `carrossel`
+-- Extraindo dados da tabela `carrossel`
 --
 
 INSERT INTO `carrossel` (`id_carrossel`, `titulo_carrossel`, `subtitulo_carrossel`, `imagem_carrossel`, `link_carrossel`, `status_carrossel`, `id_adm`) VALUES
 (2, 'UMA IMPRESSIONANTE COISA', 'Atualizações direto da nuvem para nossos usuários', 'https://i.pinimg.com/564x/b4/ea/e7/b4eae7b2b0cd369aafc42530cf328a43.jpg', 'fsdafsdaf', 1, NULL),
 (3, 'Hinata e Tobio', 'Sem brigas e agora parceiros', 'https://i.pinimg.com/564x/d6/99/fc/d699fceb840d20b1963cca0772275691.jpg', 'pudim.com.br', 1, NULL),
-(8, 'Finalmente as melhores condições', 'Depois da ultima reforma tudo melhorou, inclusive o amor ent', 'https://i.pinimg.com/564x/0b/2d/3b/0b2d3bdade879711dc5da3f11146898a.jpg', 'pudim.com.br', 0, NULL);
+(9, 'Adote um Gato!', 'Visite nosso local de adoção novo em Itanhaém!!', 'https://i.pinimg.com/564x/6a/6a/b0/6a6ab0085553d784988068c7f458ef9b.jpg', 'adote.com.br', 1, NULL),
+(10, 'slide 4', 'slide pra quebrar o site', 'https://i.pinimg.com/564x/35/e5/42/35e5420a775520d404da63c8efbf31b2.jpg', 'https://www.adote.com.br', 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `noticia`
+-- Estrutura da tabela `noticia`
 --
 
-CREATE TABLE `noticia` (
-  `id_noticia` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `noticia` (
+  `id_noticia` int(11) NOT NULL AUTO_INCREMENT,
   `titulo_noticia` varchar(45) NOT NULL,
   `texto_noticia` text NOT NULL,
   `imagem_noticia` text NOT NULL,
   `link_noticia` text,
-  `status_noticia` int NOT NULL,
-  `adm_id_adm` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `status_noticia` int(11) NOT NULL,
+  `adm_id_adm` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_noticia`),
+  KEY `adm_id_adm` (`adm_id_adm`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Despejando dados para a tabela `noticia`
+-- Extraindo dados da tabela `noticia`
 --
 
 INSERT INTO `noticia` (`id_noticia`, `titulo_noticia`, `texto_noticia`, `imagem_noticia`, `link_noticia`, `status_noticia`, `adm_id_adm`) VALUES
@@ -87,109 +94,51 @@ INSERT INTO `noticia` (`id_noticia`, `titulo_noticia`, `texto_noticia`, `imagem_
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `servico`
+-- Estrutura da tabela `servico`
 --
 
-CREATE TABLE `servico` (
-  `id_servico` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `servico` (
+  `id_servico` int(11) NOT NULL AUTO_INCREMENT,
   `nm_servico` varchar(45) NOT NULL,
   `desc_servico` varchar(255) NOT NULL,
   `imagem_servico` text,
   `link_servico` text,
-  `status_servico` int NOT NULL,
-  `adm_id_adm` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `status_servico` int(11) NOT NULL,
+  `adm_id_adm` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_servico`),
+  KEY `adm_id_adm` (`adm_id_adm`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Despejando dados para a tabela `servico`
+-- Extraindo dados da tabela `servico`
 --
 
 INSERT INTO `servico` (`id_servico`, `nm_servico`, `desc_servico`, `imagem_servico`, `link_servico`, `status_servico`, `adm_id_adm`) VALUES
-(3, 'Serviço muito específico', 'Um serviço diferenciado ta ligado', 'https://i.pinimg.com/564x/f6/1f/dd/f61fddc1cfb370c34d674b52341da8b2.jpg', 'https://www.google.com.br', 1, NULL),
+(3, 'Serviço muito específico ', 'Um serviço diferenciado ta ligado', 'https://i.pinimg.com/564x/f6/1f/dd/f61fddc1cfb370c34d674b52341da8b2.jpg', 'https://www.google.com.br', 1, NULL),
 (4, 'Dentista Genérico', 'Para você que gosta de ter um lindo sorriso! Aqui você encontra as melhores promoções do mercato.', 'https://i.pinimg.com/564x/a9/1c/26/a91c26531f82b59eb77222c4e2f75980.jpg', 'https://sorridents.com.br/', 1, NULL),
 (5, 'OEM Condom - Forneçimento de Camisinhas', 'Pra você que trabalha no cabaré ou precisa de muitas camisinhas durante o mês, temos um fornecimento', 'https://condomssupplier.com/wp-content/uploads/elementor/thumbs/OEM-Condom-ptbt9cqj38dw2mgiaou40s472edi2b4f6hveej8gc8.png', 'https://condomssupplier.com/oem-condom/?gad_source=1&gclid=Cj0KCQjw6auyBhDzARIsALIo6v-z7o-9qAVFn2LslvZ-sdA_GNKildqgn_xJbWRFmm1vaHRAgB4hJdgaAiDuEALw_wcB', 1, NULL);
 
 --
--- Índices para tabelas despejadas
+-- Constraints for dumped tables
 --
 
 --
--- Índices de tabela `adm`
---
-ALTER TABLE `adm`
-  ADD PRIMARY KEY (`id_adm`);
-
---
--- Índices de tabela `carrossel`
---
-ALTER TABLE `carrossel`
-  ADD PRIMARY KEY (`id_carrossel`),
-  ADD KEY `id_adm` (`id_adm`);
-
---
--- Índices de tabela `noticia`
---
-ALTER TABLE `noticia`
-  ADD PRIMARY KEY (`id_noticia`),
-  ADD KEY `adm_id_adm` (`adm_id_adm`);
-
---
--- Índices de tabela `servico`
---
-ALTER TABLE `servico`
-  ADD PRIMARY KEY (`id_servico`),
-  ADD KEY `adm_id_adm` (`adm_id_adm`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `adm`
---
-ALTER TABLE `adm`
-  MODIFY `id_adm` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `carrossel`
---
-ALTER TABLE `carrossel`
-  MODIFY `id_carrossel` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de tabela `noticia`
---
-ALTER TABLE `noticia`
-  MODIFY `id_noticia` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de tabela `servico`
---
-ALTER TABLE `servico`
-  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `carrossel`
+-- Limitadores para a tabela `carrossel`
 --
 ALTER TABLE `carrossel`
   ADD CONSTRAINT `carrossel_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `adm` (`id_adm`);
 
 --
--- Restrições para tabelas `noticia`
+-- Limitadores para a tabela `noticia`
 --
 ALTER TABLE `noticia`
   ADD CONSTRAINT `noticia_ibfk_1` FOREIGN KEY (`adm_id_adm`) REFERENCES `adm` (`id_adm`);
 
 --
--- Restrições para tabelas `servico`
+-- Limitadores para a tabela `servico`
 --
 ALTER TABLE `servico`
   ADD CONSTRAINT `servico_ibfk_1` FOREIGN KEY (`adm_id_adm`) REFERENCES `adm` (`id_adm`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
