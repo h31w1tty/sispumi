@@ -1,6 +1,6 @@
 <?php
   include('conexao.php');
-  $sql1 = 'SELECT * FROM carrossel WHERE status_carrossel = 1 ORDER BY id_carrossel ASC'; //listar carrosseis ativos
+  $sql1 = 'SELECT * FROM carrossel WHERE status_carrossel = 1 ORDER BY id_carrossel DESC LIMIT 3'; //listar carrosseis ativos
   $sql2 = 'SELECT * FROM noticia WHERE status_noticia = 1 ORDER BY id_noticia DESC LIMIT 3'; //listar ultimas 3 noticias ativas
 ?>
 <!DOCTYPE html>
