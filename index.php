@@ -31,7 +31,7 @@
     }
     a{
       text-decoration: none;
-      color: black;
+      color: white;
     }
 
   </style>
@@ -76,7 +76,7 @@
   if($executa -> fetch_array() == ""){ //Se NAO tiver noticias para listar
     echo 
       '<div class="carousel-item active">
-        <img src="https://i.pinimg.com/564x/6b/f5/58/6bf558033408ede03b0de5bc94143469.jpg" class="d-block w-100" alt="...">
+        <img src="./img/jornal.jpg" class="d-block w-100" alt="..." style="max-height: 650px;">
         <div class="carousel-caption d-none d-md-block">
           <h3>Aguardando Atualizações</h3>
           <p> Por enquanto nada </p>
@@ -91,8 +91,8 @@
       '<div class="carousel-item active">
         <img  style="width: auto; height: 650px" src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h3><a href="https://'.$link.'">'.$slide['titulo_carrossel'].'</a></h3>
-          <p><a href="https://'.$link.'">'.$slide['subtitulo_carrossel'].'</a></p>
+          <h3><a href="https://'.$link.'" target="_blank">'.$slide['titulo_carrossel'].'</a></h3>
+          <p><a href="https://'.$link.'" target="_blank">'.$slide['subtitulo_carrossel'].'</a></p>
         </div>
       </div>';
 
