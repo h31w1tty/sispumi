@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 22-Maio-2024 às 01:32
+-- Data de Criação: 22-Maio-2024 às 01:45
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -95,7 +95,15 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `adm_id_adm` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_servico`),
   KEY `adm_id_adm` (`adm_id_adm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `servico`
+--
+
+INSERT INTO `servico` (`id_servico`, `nm_servico`, `desc_servico`, `imagem_servico`, `link_servico`, `status_servico`, `adm_id_adm`) VALUES
+(1, 'Óticas em Itanhaém ', 'Confira os descontos disponibilizados pela ótica, através do site a seguir!', './img/otica.jpg', 'https://www.oticasmarina.com.br/', 1, NULL),
+(2, 'Plano de saúde', 'Confira os serviços disponibilizados, através do site a seguir!', './img/plano-saude.jpg', 'https://www.unimed.coop.br/site/', 1, NULL);
 
 --
 -- Constraints for dumped tables
