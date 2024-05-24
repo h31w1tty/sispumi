@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 22-Maio-2024 às 01:45
+-- Data de Criação: 22-Maio-2024 às 22:19
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de Dados: `midiasispumi`
 --
-CREATE DATABASE IF NOT EXISTS `midiasispumi` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `midiasispumi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 USE `midiasispumi`;
 
 -- --------------------------------------------------------
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `carrossel` (
   `id_adm` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_carrossel`),
   KEY `id_adm` (`id_adm`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Extraindo dados da tabela `carrossel`
@@ -77,7 +77,16 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `adm_id_adm` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_noticia`),
   KEY `adm_id_adm` (`adm_id_adm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Extraindo dados da tabela `noticia`
+--
+
+INSERT INTO `noticia` (`id_noticia`, `titulo_noticia`, `texto_noticia`, `imagem_noticia`, `link_noticia`, `status_noticia`, `adm_id_adm`) VALUES
+(1, 'Itanhaém utiliza Beach Tennis como ferramenta', 'O Beach Tennis, esporte que combina elementos do tênis e do vôlei de praia, será utilizado como ferramenta terapêutica para promover a melhora da autoestima, o desenvolvimento da coordenação motora e a socialização dos alunos.\r\n\r\nAs aulas serão ministradas por profissionais qualificados e experientes no trabalho com crianças e adolescentes, garantindo um ambiente acolhedor e seguro.\r\n\r\nO programa Paradesporto, que atende crianças com deficiência oriundas das escolas municipais por meio de encaminhamentos realizados pelos professores de educação física, contará com a modalidade de beach tennis uma vez na semana.', './img/tenis.jpg', '', 1, NULL),
+(2, 'Itanhaém reforça rondas escolares com novas v', '\r\nA Prefeitura de Itanhaém deu um importante passo para reforçar a segurança nas escolas do município com a entrega de duas novas viaturas modelo Mitsubishi L200 Triton à Guarda Civil Municipal (GCM).\r\n\r\nAs novas viaturas, destinadas pelo Governo Federal para o serviço de Ronda Escolar, fortalecerão as ações de patrulhamento, principalmente nos horários de entrada e saída dos alunos e servidores. As viaturas também servem de apoio para as atividades desenvolvidas pela GCM junto aos alunos das escolas municipais\r\n\r\nCom a entrega das novas viaturas, o total de veículos entregues para as atividades de segurança no município chega a 15 desde 2021.', './img/policia.jpg', '', 1, NULL),
+(3, 'Nova Notícia', '<p>A 10ª edição da Semana Municipal do Brincar deste ano tem como tema “Vem pra roda no ritmo do brincar” e acontece até sábado (25). </p><p>O tema visa despertar a consciência coletiva para criar um mundo onde as crianças possam desfrutar do brincar de forma plena.</p>\r\n\r\n<P>O evento acontece anualmente desde 2015, sempre na última semana do mês de maio. Na programação deste ano haverá atividades nas escolas (confira a programação completa neste link ), oficinas e palestra.</p> O encerramento acontece no sábado (25), das 13 às 16 horas, na Boca da Barra, com a Arena Brincar, um espaço com diversas atividades para toda família.', './img/brincar.jpg', '', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `adm_id_adm` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_servico`),
   KEY `adm_id_adm` (`adm_id_adm`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `servico`
@@ -103,7 +112,8 @@ CREATE TABLE IF NOT EXISTS `servico` (
 
 INSERT INTO `servico` (`id_servico`, `nm_servico`, `desc_servico`, `imagem_servico`, `link_servico`, `status_servico`, `adm_id_adm`) VALUES
 (1, 'Óticas em Itanhaém ', 'Confira os descontos disponibilizados pela ótica, através do site a seguir!', './img/otica.jpg', 'https://www.oticasmarina.com.br/', 1, NULL),
-(2, 'Plano de saúde', 'Confira os serviços disponibilizados, através do site a seguir!', './img/plano-saude.jpg', 'https://www.unimed.coop.br/site/', 1, NULL);
+(2, 'Plano de saúde', 'Confira os serviços disponibilizados, através do site a seguir!', './img/plano-saude.jpg', 'https://www.unimed.coop.br/site/', 1, NULL),
+(3, 'Plano Odontologico   ', 'Confira os descontos disponibilizados pela clínica odontologica, através do site a seguir!', './img/dentista.jpg', 'https://sorridents.com.br/unidade/itanhaem', 1, NULL);
 
 --
 -- Constraints for dumped tables

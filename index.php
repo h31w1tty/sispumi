@@ -192,7 +192,7 @@ $executa = $con->query($sql2);
   </div>
   <div class="col-sm-5">
     <h1 style="font-size: 70px; color: #760E9A;"><strong>Quem somos nós?</strong></h1>
-    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially</h3>
+    <h4>Nós somos o SISPUMI - Sindicato dos Servidores Públicos Municipais de Itanhaém. <br><br>Fundado com o objetivo de defender os direitos e promover as reivindicações dos servidores municipais, o SISPUMI atua em diversas frentes, como negociações salariais, melhorias nas condições de trabalho, apoio jurídico, e capacitação profissional.</h4>
     <br>
   </div>
   <div class="col-sm-1"></div>

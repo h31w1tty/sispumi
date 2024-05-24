@@ -183,7 +183,7 @@
                             <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Descrição</span>
+                            <span class="input-group-text">Subtítulo</span>
                             <textarea name="subtitulo" class="form-control" aria-label="With textarea" maxlength="100"><?php echo $descricao; ?></textarea>
                         </div>
                         <div class="mb-3">
