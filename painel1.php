@@ -121,9 +121,9 @@
                                         while($slide = $executa -> fetch_array()){
                                             $subtitulo_carrossel = strlen($slide['subtitulo_carrossel']) > 40 ? substr($slide['subtitulo_carrossel'], 0, 40) . "..." : $slide['subtitulo_carrossel'];
                                             if($slide['status_carrossel'] == 1){
-                                                $status = "ATIVO";
+                                                $status = "ONLINE";
                                             }else{
-                                                $status = "INATIVO";
+                                                $status = "DESATIVADO";
                                             }
                                             echo '
                                             <tr>

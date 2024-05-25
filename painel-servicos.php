@@ -13,9 +13,9 @@
             $link = $servico['link_servico'];
             $imagem = $servico['imagem_servico'];
             if($servico['status_servico'] == 1){
-                $status = "Ativo";
+                $status = "Online!";
             }else{
-                $status = "Inativo";
+                $status = "Desativado";
             }
         }else{//caso esteja no modo de adicionar nova tupla, deixar variaveis em branco(necessário)
             $id  = "";
@@ -23,6 +23,7 @@
             $descricao = "";
             $link = "";
             $imagem = "./img/logo-escura.png";
+            $status = "Desativado";
         }
 
     }else{
@@ -95,11 +96,11 @@
         let status = document.querySelector("#status");
         let alternador = document.querySelector("#alternador");
         
-        if(alternador.textContent == "Ativo"){
-            alternador.textContent  = "Inativo";
+        if(alternador.textContent == "Online!"){
+            alternador.textContent  = "Desativado";
             status.value = 0;
         }else{
-            alternador.textContent = "Ativo";
+            alternador.textContent = "Online!";
             status.value = 1;
         }
     }
@@ -200,7 +201,7 @@
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-danger" name="btn" value="deletar">Deletar</button>
-                            <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador">Ativo</button>
+                            <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador"><?php echo $status; ?></button>
                             <button type="submit" class="btn btn-success" name="btn" value="salvar">Salvar</button>
                         </div>
                         <input type="hidden" value="1" name="status" id=status>

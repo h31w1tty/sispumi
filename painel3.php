@@ -118,9 +118,9 @@
                                     while($noticia = $executa -> fetch_array()){
                                         $texto_noticia = strlen($noticia['texto_noticia']) > 80 ? substr($noticia['texto_noticia'], 0, 80) . "..." : $noticia['texto_noticia'];
                                         if($noticia['status_noticia'] == 1){
-                                            $status = "ATIVO";
+                                            $status = "ONLINE";
                                         }else{
-                                            $status = "INATIVO";
+                                            $status = "DESATIVADO";
                                         }
                                         echo '
                                         <tr>

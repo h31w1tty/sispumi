@@ -118,9 +118,9 @@
                         while($servico = $executa -> fetch_array()){
                             $desc_servico = strlen($servico['desc_servico']) > 60 ? substr($servico['desc_servico'], 0, 60) . "..." : $servico['desc_servico'];
                             if($servico['status_servico'] == 1){
-                                $status = "ATIVO";
+                                $status = "ONLINE";
                             }else{
-                                $status = "INATIVO";
+                                $status = "DESATIVADO";
                             }
                             echo '
                             <tr>
