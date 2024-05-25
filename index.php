@@ -85,16 +85,19 @@
   }else{
     // Se TIVER noticias para listar
     $executa = $con->query($sql1);
+    $itemactive = "active";
     while($slide = $executa -> fetch_array()){//Loop q seleciona os slides (quantos houver)
       $link = $slide['link_carrossel'];
+      
       echo 
-      '<div class="carousel-item active">
+      '<div class="carousel-item '.$itemactive.'">
         <img  style="width: auto; height: 650px" src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h3><a href="https://'.$link.'" target="_blank">'.$slide['titulo_carrossel'].'</a></h3>
           <p><a href="https://'.$link.'" target="_blank">'.$slide['subtitulo_carrossel'].'</a></p>
         </div>
       </div>';
+      if($itemactive == "active"){ $itemactive = ""; }
 
     }
   }
@@ -116,13 +119,12 @@
   <div class="col-sm-1"></div>
 
     <div class="col-sm-6">
-    <br>
-    <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícias</strong></h1>
-    <br>
-    <!-- CARD NOTÍCIA 1 -->
+      <br>
+      <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícias</strong></h1>
+      <br>
+      <!-- CARD NOTÍCIA 1 -->
 
 <?php
-
 $executa = $con->query($sql2);
   if($executa -> fetch_array() == ""){ 
     //caso nao tenha nenhum
@@ -135,23 +137,23 @@ $executa = $con->query($sql2);
       $texto_noticia = strlen($noticia['texto_noticia']) > 128 ? substr($noticia['texto_noticia'], 0, 128) . "..." : $noticia['texto_noticia'];
       echo 
       '<div class="card mb-3" style="max-width: 1440px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <a href="noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="..."></a>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h4 class="card-title"><strong>'.$noticia['titulo_noticia'].'</strong></h4>
-            <p class="card-text">'.$texto_noticia.'</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <div class="row g-0">
+          <div class="col-md-4">
+            <a href="noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="..."></a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title"><strong>'.$noticia['titulo_noticia'].'</strong></h4>
+              <p class="card-text">'.$texto_noticia.'</p>
+              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <br>
-    <hr>
-    <br>';
+      <br>
+      <hr>
+      <br>';
     }
   }
 ?>
@@ -227,7 +229,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="contato.html" class="text-white"><strong>Contato</strong></a>
+              <a href="./contato.php" class="text-white"><strong>Contato</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
