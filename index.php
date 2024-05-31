@@ -103,6 +103,7 @@
   }
 ?>
 </div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -111,7 +112,6 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
 <!-- ↑ Fim do carrossel ↑ -->
 
 <br>
@@ -123,7 +123,6 @@
       <h1 style="font-size: 70px; color: #760E9A;"><strong>Notícias</strong></h1>
       <br>
       <!-- CARD NOTÍCIA 1 -->
-
 <?php
 $executa = $con->query($sql2);
   if($executa -> fetch_array() == ""){ 
@@ -135,11 +134,12 @@ $executa = $con->query($sql2);
     $executa = $con->query($sql2);
     while($noticia = $executa -> fetch_array()){//seleciona um loop de 3 items
       $texto_noticia = strlen($noticia['texto_noticia']) > 128 ? substr($noticia['texto_noticia'], 0, 128) . "..." : $noticia['texto_noticia'];
+      echo '<a href="noticias.php?id_noticia='.$noticia['id_noticia'].'">';
       echo 
       '<div class="card mb-3" style="max-width: 1440px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <a href="noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="..."></a>
+            <img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -149,8 +149,9 @@ $executa = $con->query($sql2);
             </div>
           </div>
         </div>
-      </div>
-
+      </div>';
+      echo '
+      </a>
       <br>
       <hr>
       <br>';
@@ -165,9 +166,9 @@ $executa = $con->query($sql2);
     </h2>
   </a>
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 </div>
 
 <div class="col-sm-1"></div>

@@ -28,6 +28,10 @@
     body{
       font-family: poppins;
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   </style>
 </head>
 <body>
@@ -82,10 +86,10 @@ $executa = $con->query($sql2);
     while($noticia = $executa -> fetch_array()){//seleciona um loop de 3 items
       $texto_noticia = $noticia['texto_noticia'] > 128 ? substr($noticia['texto_noticia'], 0, 128) . "..." : $noticia['texto_noticia'];
       echo 
-      '<div class="card mb-3" style="max-width: 1440px;">
+      '<a href="noticias.php?id_noticia='.$noticia['id_noticia'].'"><div class="card mb-3" style="max-width: 1440px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="noticias.php?id_noticia='.$noticia['id_noticia'].'"><img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="..."></a>
+          <img src="'.$noticia['imagem_noticia'].'" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -95,7 +99,7 @@ $executa = $con->query($sql2);
           </div>
         </div>
       </div>
-    </div>
+    </div></a>
 
     <br>
     <hr>
@@ -105,7 +109,6 @@ $executa = $con->query($sql2);
 ?>
 
     <br>
-    <hr>
     <br>
     <br>
   <div class="col-sm-2"></div>
@@ -122,7 +125,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="index.html" class="text-white"><strong>Home</strong></a>
+              <a href="./index.php" class="text-white"><strong>Home</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -130,7 +133,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="servicos.html" class="text-white"><strong>Serviços</strong></a>
+              <a href="./servicos.php" class="text-white"><strong>Serviços</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -138,7 +141,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="contato.html" class="text-white"><strong>Contato</strong></a>
+              <a href="./contato.php" class="text-white"><strong>Contato</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -146,7 +149,7 @@ $executa = $con->query($sql2);
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="login.html" class="text-white"><strong>Painel Administrativo</strong></a>
+              <a href="./login.php" class="text-white"><strong>Painel Administrativo</strong></a>
             </h4>
           </div>
           <!-- Grid column -->

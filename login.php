@@ -69,8 +69,8 @@
 
         <form action="painel1.php" method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="inputSenha" placeholder="email">
-            <label for="inputSenha">Email *</label>
+            <input type="text" class="form-control" id="inputSenha" placeholder="login">
+            <label for="inputSenha">Login *</label>
           </div>
           <br>
           <div class="form-floating mb-3">
