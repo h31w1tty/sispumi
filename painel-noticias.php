@@ -69,6 +69,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <!--- Boostrap --->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<script src="./js/bootstrap.min.js"></script>
     <!--- FIM Boostrap --->
@@ -200,9 +201,9 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-danger" name="btn" value="deletar">Deletar</button>
-                                <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador"><?php echo $status; ?></button>
-                                <button type="submit" class="btn btn-success" name="btn" value="salvar">Salvar</button>
+                                <button type="submit" class="btn btn-danger" name="btn" value="deletar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Apaga a postagem atual.">Deletar</button>
+                                <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ativa e desativa a postagem sem precisar deletá-la."><?php echo $status; ?></button>
+                                <button type="submit" class="btn btn-success" name="btn" value="salvar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salva todas as mudanças e atualiza o Site.">Salvar</button>
                             </div>
                             <input type="hidden" value="1" name="status" id=status>
                         </form>
@@ -220,6 +221,12 @@
         <div class="col-sm-1" style="background-color: #fafbfe;"></div>
     
     <script src="./js/script.js"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
 
 </body>
 </html>
