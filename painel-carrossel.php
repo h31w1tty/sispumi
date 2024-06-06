@@ -94,7 +94,8 @@
 	</style>
     <script>
         function excluir() {
-            var confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR A NOTÍCIA: <?php echo $titulo; ?>");
+            var confirmacao = false;
+            confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR A NOTÍCIA: <?php echo $titulo; ?>");
             if (confirmacao) {
                 enviarFormulario();
             } else {
