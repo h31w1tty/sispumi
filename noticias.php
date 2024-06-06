@@ -68,16 +68,18 @@ if(isset($_GET['id_noticia'])){
   $executa = $con->query($sql1);
  
   if($executa -> fetch_array() == ""){ 
-    //caso nao tenha nenhum acho impossivel
-    echo 'erro';
+    //caso ip inexistente
+    $titulo = "Notícia Indisponível";
+    $texto = "Notícia temporariamente indisponível, isso ocorre quando a notícia é removida ou temporariamente desativada!";
+    $imagem = "";
   }else{
     // caso tenha grupos para listar
     $executa = $con->query($sql1);
-    while($noticia = $executa -> fetch_array()){//Loop vai selecionar 1
-      $titulo = $noticia['titulo_noticia'];
-      $texto = $noticia['texto_noticia'];
-      $imagem = $noticia['imagem_noticia'];
-    }
+    $noticia = $executa -> fetch_array();//Loop vai selecionar 1
+    $titulo = $noticia['titulo_noticia'];
+    $texto = $noticia['texto_noticia'];
+    $imagem = $noticia['imagem_noticia'];
+    
   }
 
 ?>
@@ -91,7 +93,7 @@ if(isset($_GET['id_noticia'])){
     <hr>
     <h5>Por: IMPROVED inc.</h5>
     <br>
- 	  <img src="<?php echo $imagem; ?>" class="rounded" alt="..." style="max-width: 100%;">
+ 	  <img src="<?php echo $imagem; ?>" class="rounded" alt="Imagem não encontrada" style="max-width: 100%;">
   <br><br>
   <h6>Descrição sobre foto | Postado 14 de Abril, às 00:00</h6>
   <hr>
