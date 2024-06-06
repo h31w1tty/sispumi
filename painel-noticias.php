@@ -93,18 +93,29 @@
     	}
 	</style>
     <script>
-    function botao(){
-        let status = document.querySelector("#status");
-        let alternador = document.querySelector("#alternador");
-        
-        if(alternador.textContent == "Online!"){
-            alternador.textContent  = "Desativado";
-            status.value = 0;
-        }else{
-            alternador.textContent = "Online!";
-            status.value = 1;
+        function excluir() {
+            var confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR A NOTÍCIA: <?php echo $titulo; ?>");
+            if (confirmacao) {
+                enviarFormulario();
+            } else {
+                
+            }
         }
-    }
+        function enviarFormulario() {
+            document.querySelector("#formExcluir").submit();
+        }
+        function botao(){
+            let status = document.querySelector("#status");
+            let alternador = document.querySelector("#alternador");
+            
+            if(alternador.textContent == "Online!"){
+                alternador.textContent  = "Desativado";
+                status.value = 0;
+            }else{
+                alternador.textContent = "Online!";
+                status.value = 1;
+            }
+        }
     </script>
 </head>
 <body>
@@ -201,11 +212,15 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-danger" name="btn" value="deletar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Apaga a postagem atual.">Deletar</button>
+                                <button type="submit" class="btn btn-danger" name="btn" onclick="excluir()" value="deletar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Apaga a postagem atual.">Deletar</button>
                                 <button type="button" class="btn btn-warning" name="btn" onclick="botao()" id="alternador" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ativa e desativa a postagem sem precisar deletá-la."><?php echo $status; ?></button>
                                 <button type="submit" class="btn btn-success" name="btn" value="salvar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salva todas as mudanças e atualiza o Site.">Salvar</button>
                             </div>
                             <input type="hidden" value="1" name="status" id=status>
+                        </form>
+
+                        <form method="post" id="formExcluir">
+                            <input type="hidden" name="btn" value="deletar">
                         </form>
 
                     </div>
