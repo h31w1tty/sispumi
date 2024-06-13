@@ -9,6 +9,9 @@
       //caso exista um login compatível
       $sql2 = '';
 
+      //$sql = "INSERT INTO usuario VALUES (null, '".$input_nome."', '".password_hash($input_senha, PASSWORD_DEFAULT)."')";
+      //if(password_verify($input_senha, $hash_usuario))
+
     }else{
       //caso não encontrar nenhum login
       echo '<script>alert("Login Inexistente!")</script>';
