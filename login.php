@@ -1,3 +1,22 @@
+<?php
+  include('conexao.php');
+  
+  if($_POST){
+    $inLogin = $_POST['login'];
+    $inSenha = $_POST['senha'];
+    $sql1 = 'SELECT * from adm where login_adm ='.$inLogin;
+    if($executa = $con->query($sql1)){
+      //caso exista um login compatível
+      $sql2 = '';
+
+    }else{
+      //caso não encontrar nenhum login
+      echo '<script>alert("Login Inexistente!")</script>';
+    }
+
+    
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,14 +86,14 @@
         </div>
         <br>
 
-        <form action="painel1.php" method="POST">
+        <form method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="inputSenha" placeholder="login">
+            <input type="text" class="form-control" id="inputSenha" placeholder="login" name="login">
             <label for="inputSenha">Login *</label>
           </div>
           <br>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput2" placeholder="senha">
+            <input type="password" class="form-control" id="floatingInput2" placeholder="senha" name="senha">
             <label for="floatingInput2">Senha *</label>
           </div>
           <br>
