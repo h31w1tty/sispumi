@@ -71,39 +71,38 @@
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-<?php
-  $executa = $con->query($sql1);
-  if($executa -> fetch_array() == ""){ //Se NAO tiver noticias para listar
-    echo 
-      '<div class="carousel-item active">
-        <img src="./img/jornal.jpg" class="d-block w-100" alt="..." style="max-height: 650px;">
-        <div class="carousel-caption d-none d-md-block">
-          <h3>Aguardando Atualizações</h3>
-          <p> Por enquanto nada </p>
-        </div>
-      </div>';
-  }else{
-    // Se TIVER noticias para listar
-    $executa = $con->query($sql1);
-    $itemactive = "active";
-    while($slide = $executa -> fetch_array()){//Loop q seleciona os slides (quantos houver)
-      $link = $slide['link_carrossel'];
-      
-      echo 
-      '<div class="carousel-item '.$itemactive.'">
-        <img  style="width: auto; height: 650px" src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h3><a href="https://'.$link.'" target="_blank">'.$slide['titulo_carrossel'].'</a></h3>
-          <p><a href="https://'.$link.'" target="_blank">'.$slide['subtitulo_carrossel'].'</a></p>
-        </div>
-      </div>';
-      if($itemactive == "active"){ $itemactive = ""; }
-
-    }
-  }
-?>
-</div>
-
+    <?php
+      $executa = $con->query($sql1);
+      if($executa -> fetch_array() == ""){ //Se NAO tiver noticias para listar
+        echo 
+          '<div class="carousel-item active">
+            <img src="./img/jornal.jpg" class="d-block w-100" alt="..." style="max-height: 650px;">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Aguardando Atualizações</h3>
+              <p> Por enquanto nada </p>
+            </div>
+          </div>';
+      }else{
+        // Se TIVER noticias para listar
+        $executa = $con->query($sql1);
+        $itemactive = "active";
+        while($slide = $executa -> fetch_array()){//Loop q seleciona os slides (quantos houver)
+          $link = $slide['link_carrossel'];
+          
+          echo 
+          '<div class="carousel-item '.$itemactive.'">
+            <img  style="width: auto; height: 650px" src="'.$slide['imagem_carrossel'].'" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3><a href="https://'.$link.'" target="_blank">'.$slide['titulo_carrossel'].'</a></h3>
+              <p><a href="https://'.$link.'" target="_blank">'.$slide['subtitulo_carrossel'].'</a></p>
+            </div>
+          </div>';
+          if($itemactive == "active"){ $itemactive = ""; }
+    
+        }
+      }
+    ?>
+  </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -112,7 +111,9 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
 <!-- ↑ Fim do carrossel ↑ -->
+
 
 <br>
 <div class="row container-fluid">
