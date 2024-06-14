@@ -21,6 +21,10 @@
     body{
       font-family: poppins;
     }
+    a{
+      text-decoration: none;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -108,7 +112,7 @@
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="index.php" class="text-white"><strong>Home</strong></a>
+              <a href="./index.php" class="text-white"><strong>Home</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -116,7 +120,7 @@
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="servicos.php" class="text-white"><strong>Serviços</strong></a>
+              <a href="./servicos.php" class="text-white"><strong>Serviços</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
@@ -124,7 +128,7 @@
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="contato.html" class="text-white"><strong>Contato</strong></a>
+              <a href="./contato.php" class="text-white"><strong>Contato</strong></a>
             </h4>
           </div>
           <!-- Grid column -->

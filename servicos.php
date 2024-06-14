@@ -28,6 +28,10 @@ $ladoServico = "esquerda";
     body{
       font-family: poppins;
     }
+    a{
+      text-decoration: none;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -154,7 +158,7 @@ if($executa -> fetch_array() == ""){
           <!-- Grid column -->
           <div class="col-md-2">
             <h4 class="font-weight-bold">
-              <a href="contato.html" class="text-white"><strong>Contato</strong></a>
+              <a href="./contato.php" class="text-white"><strong>Contato</strong></a>
             </h4>
           </div>
           <!-- Grid column -->
