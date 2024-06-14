@@ -2,15 +2,22 @@
   include('conexao.php');
   
   if($_POST){
+
     $inLogin = $_POST['login'];
     $inSenha = $_POST['senha'];
-    $sql1 = 'SELECT * from adm where login_adm ='.$inLogin;
-    if($executa = $con->query($sql1)){
+    $sql1 = 'SELECT * FROM adm WHERE login_adm = "'.$inLogin.'"';
+    $executa = $con->query($sql1);
+    $adm = $executa->fetch_array();
+    $outLogin = $adm['login_adm'];
+    $outSenha = $adm['senha_adm'];
+    
+    if ($executa->num_rows > 0){
       //caso exista um login compatível
-      $sql2 = '';
-
-      //$sql = "INSERT INTO usuario VALUES (null, '".$input_nome."', '".password_hash($input_senha, PASSWORD_DEFAULT)."')";
-      //if(password_verify($input_senha, $hash_usuario))
+      if($outSenha == $inSenha){
+        header("Location: ./painel1.php");
+      }else{
+        echo '<script>alert("Senha Incorreta!")</script>';
+      }
 
     }else{
       //caso não encontrar nenhum login

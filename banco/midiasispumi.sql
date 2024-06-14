@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 22-Maio-2024 às 22:19
+-- Data de Criação: 14-Jun-2024 às 01:11
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -33,7 +33,14 @@ CREATE TABLE IF NOT EXISTS `adm` (
   `login_adm` varchar(60) NOT NULL,
   `senha_adm` varchar(60) NOT NULL,
   PRIMARY KEY (`id_adm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `adm`
+--
+
+INSERT INTO `adm` (`id_adm`, `login_adm`, `senha_adm`) VALUES
+(2, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
