@@ -93,6 +93,7 @@
     	}
 	</style>
     <script>
+
         function excluir() {
             var confirmacao = false;
             confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR A NOTÍCIA: <?php echo $titulo; ?>");
@@ -117,6 +118,7 @@
                 status.value = 1;
             }
         }
+        
     </script>
 </head>
 <body>

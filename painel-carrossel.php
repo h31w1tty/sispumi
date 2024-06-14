@@ -95,7 +95,7 @@
     <script>
         function excluir() {
             var confirmacao = false;
-            confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR A NOTÍCIA: <?php echo $titulo; ?>");
+            confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR O CARROSSEL: <?php echo $titulo; ?>");
             if (confirmacao) {
                 enviarFormulario();
             } else {
@@ -204,7 +204,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Titulo</span>
-                            <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>">
+                            <input name="titulo" type="text" class="form-control" placeholder="Seu título aqui" aria-label="Username" aria-describedby="basic-addon1" value="<?php echo $titulo; ?>" maxlength="60">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Subtítulo</span>

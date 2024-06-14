@@ -96,7 +96,7 @@
         
         function excluir() {
             var confirmacao = false;
-            confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR A NOTÍCIA: <?php echo $titulo; ?>");
+            confirmacao = confirm("TEM CERTEZA QUE QUER EXCLUIR O SERVIÇO: <?php echo $titulo; ?>");
             if (confirmacao) {
                 enviarFormulario();
             } else {
