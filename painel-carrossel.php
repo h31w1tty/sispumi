@@ -92,6 +92,10 @@
     	body{
       		font-family: poppins;
     	}
+
+        a{
+            text-decoration: none;
+        }
 	</style>
     <script>
         function excluir() {
