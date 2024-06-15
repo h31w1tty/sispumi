@@ -1,6 +1,12 @@
 <?php
     include('conexao.php');
-    $sql1 = 'SELECT * FROM carrossel ORDER BY id_carrossel DESC'; //listar carrosseis
+    session_start();
+    if($_SESSION['adm'] == true){
+        $sql1 = 'SELECT * FROM carrossel ORDER BY id_carrossel DESC'; //listar carrosseis
+    }else{
+        header("Location: ./login.php");
+    }
+
 ?>
 <!DOCTYPE html>
 <html>

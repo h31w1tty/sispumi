@@ -1,6 +1,11 @@
 <?php
-    include('conexao.php');
+session_start();
+include('conexao.php');
+if($_SESSION['adm'] == true){
     $sql1 = 'SELECT * FROM noticia ORDER BY id_noticia DESC'; //listar noticias
+}else{
+    header("Location: ./login.php");
+}
 ?>
 <!DOCTYPE html>
 <html>

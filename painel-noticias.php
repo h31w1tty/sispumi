@@ -1,6 +1,7 @@
 <?php
     include('conexao.php');
-    if (isset($_GET['id_noticia'])) {
+    session_start();
+    if (isset($_GET['id_noticia'])  && $_SESSION['adm'] == true) {
         $id_noticia = $_GET['id_noticia'];
 
         if($id_noticia != 0){

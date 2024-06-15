@@ -1,6 +1,11 @@
 <?php
-    include('conexao.php');
+session_start();
+include('conexao.php');
+if($_SESSION['adm'] == true){
     $sql1 = 'SELECT * FROM servico ORDER BY id_servico DESC'; //listar servicos
+}else{
+    header("Location: ./login.php");
+}
 ?>
 <!DOCTYPE html>
 <html>

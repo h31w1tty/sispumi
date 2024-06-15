@@ -1,6 +1,7 @@
 <?php
     include('conexao.php');
-    if (isset($_GET['id_servico'])) {
+    session_start();
+    if (isset($_GET['id_servico']) && $_SESSION['adm'] == true) {
         $id_servico = $_GET['id_servico'];
 
         if($id_servico != 0){ //caso tenha sido selecionado uma tupla, vai nomear as variaveis com as informações do banco

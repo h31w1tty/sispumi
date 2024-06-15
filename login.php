@@ -1,6 +1,7 @@
-<?php
+<?php  
   include('conexao.php');
-  
+  session_start();
+  $_SESSION['adm'] = false;
   if($_POST){
 
     $inLogin = $_POST['login'];
@@ -14,6 +15,7 @@
     if ($executa->num_rows > 0){
       //caso exista um login compatível
       if($outSenha == $inSenha){
+        $_SESSION['adm'] = true;
         header("Location: ./painel1.php");
       }else{
         echo '<script>alert("Senha Incorreta!")</script>';

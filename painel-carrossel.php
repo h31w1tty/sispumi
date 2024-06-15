@@ -1,6 +1,7 @@
 <?php
     include('conexao.php');
-    if (isset($_GET['id_slide'])) {
+    session_start();
+    if (isset($_GET['id_slide']) && $_SESSION['adm'] == true) {
         $id_carrossel = $_GET['id_slide'];
 
         if($id_carrossel != 0){
