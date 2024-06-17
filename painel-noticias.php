@@ -233,10 +233,10 @@
 
                     </div>
                     <div class="col-sm-3">
-                        <img src="<?php echo $imagem; ?>" class="img-fluid" style="border-radius: 10px;">
+                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> 
+                            Imagem atual 
+                            <img src="<?php echo $imagem; ?>" class="img-fluid" style="border-radius: 10px; padding: 2px;"></div>
                         <br>
-                        <br>
-                        <div style="border-radius: 10px; text-align: center; background-color: lightblue; background-color: lightgray;"> sua imagem</div>
                     </div>
                 </div>
             </div>
