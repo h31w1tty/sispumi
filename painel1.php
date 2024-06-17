@@ -106,7 +106,7 @@
             <br>
             <h1 style="color: #760E9A;"><strong>Carrossel</strong></h1>
             <hr>
-            <h4>Edite as configurações referentes ao carrosel da página.</h4>
+            <h4>Edite as configurações referentes ao carrossel da página.</h4>
             <br>
             <div class="text-center">
                 <div class="row">

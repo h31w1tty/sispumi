@@ -178,11 +178,13 @@ $executa = $con->query($sql2);
   <br>
   <br>
   <div class="card mb-3">
-<a href="servicos.php"><img src="./img/servicos2.jpg" class="card-img-top" alt="..."></a>
-<div class="card-body">
-  <h5 class="card-title" style="text-align: center; color: #760E9A;">Confira agora <i class="fa-solid fa-arrow-right"></i></h5>
-</div>
-</div>
+    <a href="servicos.php">
+      <img src="./img/servicos2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: #760E9A;">Confira agora <i class="fa-solid fa-arrow-right"></i></h5>
+      </div>
+    </a>
+  </div>
 <div class="col-sm-1"></div>
 </div>
 
