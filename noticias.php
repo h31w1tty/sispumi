@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include('conexao.php');
 if(isset($_GET['id_noticia'])){
   $id_noticia = $_GET['id_noticia'];
@@ -32,6 +32,9 @@ if(isset($_GET['id_noticia'])){
   <style type="text/css">
     body{
       font-family: poppins;
+    }
+    a{
+	text-decoration: none;
     }
   </style>
 </head>
