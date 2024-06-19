@@ -93,7 +93,6 @@ if($executa -> fetch_array() == ""){
               <div class="card-body">
                 <h4 class="card-title"><strong>'.$servico['nm_servico'].'</strong></h4>
                 <p class="card-text">'.$servico['desc_servico'].'</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 <a href="'.$servico['link_servico'].'" target="_blank" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
               </div>
             </div>
@@ -110,7 +109,6 @@ if($executa -> fetch_array() == ""){
               <div class="card-body" style="text-align: right;">
                 <h4 class="card-title" align="left"><strong>'.$servico['nm_servico'].'</strong></h4>
                 <p class="card-text" align="left">'.$servico['desc_servico'].'</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 <a href="'.$servico['link_servico'].'" target="_blank" class="btn text-light" style="background-color: #760E9A;">Confira agora!</a>
               </div>
             </div>

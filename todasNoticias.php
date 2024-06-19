@@ -96,7 +96,6 @@ $executa = $con->query($sql2);
           <div class="card-body">
             <h4 class="card-title"><strong>'.$noticia['titulo_noticia'].'</strong></h4>
             <p class="card-text">'.$texto_noticia.'</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
           </div>
         </div>
       </div>
