@@ -9,11 +9,11 @@
     $sql1 = 'SELECT * FROM adm WHERE login_adm = "'.$inLogin.'"';
     $executa = $con->query($sql1);
     $adm = $executa->fetch_array();
-    $outLogin = $adm['login_adm'];
-    $outSenha = $adm['senha_adm'];
-    
+  
     if ($executa->num_rows > 0){
       //caso exista um login compatível
+      $outLogin = $adm['login_adm'];
+      $outSenha = $adm['senha_adm'];
       if($outSenha == $inSenha){
         $_SESSION['adm'] = true;
         header("Location: ./painel1.php");
